@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="" />
+    <title>서브 레이아웃 | Boss Line</title>
+    <link
+      rel="stylesheet"
+      href="./assets/vendors/swiper/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./assets/fonts/NotoSansKR/font.css" />
+    <link rel="stylesheet" href="./assets/fonts/Poppins/font.css" />
+    <link rel="stylesheet" href="./assets/css/common.css" />
+    <link rel="stylesheet" href="./assets/css/sub.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="gnb">
+          <div class="gnb-row">
+            <a href="#" class="gnb-logo">
+              <img src="./assets/img/img_bi.png" alt="BOSS LINE" />
+            </a>
+            <div class="gnb-menu">
+              <a href="#">보탐스마트</a>
+              <a href="#" class="is-active">라인스마트</a>
+            </div>
+            <span class="gnb-line"></span>
+            <div class="gnb-auth">
+              <a href="#">
+                로그인
+                <span class="circle"></span>
+              </a>
+            </div>
+          </div>
+        </nav>
+
+        <div class="menu">
+          <ul class="menu-list">
+            <!--MEMO: is-active 클래스명 추가 시 활성화-->
+            <li class="menu-item is-active">
+              <a href="#none" class="menu-link">
+                <span>리니지M</span>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="#none" class="menu-link">
+                <span>리니지2M</span>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="#none" class="menu-link">
+                <span>V4</span>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="#none" class="menu-link">
+                <span>더보기</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="cover"
+          style="background-image: url(./assets/img/bg_cover01.jpg)"
+        >
+          <h1 class="cover-title">게임명</h1>
+          <span class="cover-breadcrumb">
+            <a href="#">홈</a>
+            <a href="#">중분류</a>
+            <a href="#">하분류</a>
+          </span>
+        </div>
+
+        <button class="btn-menu">
+          <span class="btn-menu-bar"></span>
+          <span class="sr-only">메뉴</span>
+        </button>
+        <nav class="nav">
+          <a href="#" class="nav-logo">
+            <img src="./assets/img/img_bi.png" alt="BOSS LINE" />
+          </a>
+          <div class="nav-menu">
+            <a href="#">보탐스마트</a>
+            <a href="#">라인스마트</a>
+          </div>
+          <span class="nav-line"></span>
+          <div class="nav-auth">
+            <a href="#">
+              로그인
+              <span class="circle"></span>
+            </a>
+          </div>
+        </nav>
+      </header>
+
+      <main class="container">
+        <div class="tab" role="navigation">
+          <div class="tab-row">
+            <a href="#" class="tab-link is-active">기본봇</a>
+            <a href="#" class="tab-link">기본봇</a>
+            <a href="#" class="tab-link">기본봇</a>
+          </div>
+        </div>
+        <div class="content">
+          <h1>Sub Layout Sample</h1>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-inner">
+          <div class="row">
+            <div class="col">
+              <img src="./assets/img/img_logo.png" alt="조이스" />
+            </div>
+            <div class="col col-auto">
+              <a href="#">개인정보처리방침</a>
+              <span class="line"></span>
+              <a href="#">오시는 길</a>
+            </div>
+            <div class="col">
+              <a href="#" class="btn btn-kakao">
+                <span class="icon">
+                  <img src="./assets/img/img_kakao.png" alt="" />
+                </span>
+                <span class="text">문의하기</span>
+              </a>
+            </div>
+          </div>
+          <div class="group">
+            <address class="address">
+              <span>업체명 : 조이스</span>
+              <br class="m" />
+              <span>주소 : 서울시 강남구 테헤란로 138, 성홍타워 5층 513호</span>
+              <br class="m" />
+              <span>대표 : 김종우</span>
+              <span>사업자 등록번호 : 303-16-65581</span>
+            </address>
+            <span class="copyright">
+              COPYRIGHT © 2020 bossline.kr ALL RIGHTS RESERVED
+            </span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="./assets/vendors/swiper/swiper-bundle.min.js"></script>
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>

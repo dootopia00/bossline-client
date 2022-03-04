@@ -1,0 +1,10 @@
+@mixin bar {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 25px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 2px;
+  transform: translateX(-50%);
+}

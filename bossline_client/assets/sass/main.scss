@@ -1,0 +1,381 @@
+body {
+  background-color: #000;
+  color: #fff;
+}
+
+.bi {
+  display: inline-block;
+  position: relative;
+  top: -218px;
+  left: -132px;
+  width: 426px;
+  height: 426px;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 426px;
+    height: 426px;
+    background: rgb(186, 0, 120);
+    background: linear-gradient(
+      45deg,
+      rgba(186, 0, 120, 1) 0%,
+      rgba(244, 0, 54, 1) 100%
+    );
+    border-radius: 50%;
+    animation: rotating 2s linear infinite;
+    transition: all 0.3s;
+    overflow: hidden;
+  }
+  &:hover::before {
+    transform: scale(1.1);
+  }
+  a {
+    position: absolute;
+    right: 60px;
+    bottom: 120px;
+    z-index: 1;
+    img {
+      max-width: 154px;
+    }
+  }
+}
+
+.wrapper {
+  overflow: hidden;
+}
+
+.header {
+  position: relative;
+  min-height: 476px;
+  &-top {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 0;
+    transform: translate(-50%, 0);
+    z-index: 2;
+  }
+}
+
+.swiper {
+  &-inner {
+    position: absolute;
+    left: 50%;
+    bottom: 100px;
+    max-width: 1360px;
+    width: 100%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+  &-control {
+    position: absolute;
+    left: 80px;
+    display: flex;
+  }
+  &-button {
+    &-prev,
+    &-next {
+      position: static;
+      margin-top: inherit;
+      padding: 0 36px;
+      width: auto;
+      height: auto;
+      color: inherit;
+      &::after {
+        font-size: 28px;
+      }
+    }
+    &-prev {
+      padding-left: 0;
+    }
+    &-next {
+      padding-right: 0;
+    }
+  }
+  &-slide {
+    height: 476px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgb(0, 0, 0);
+      background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0) 80%
+      );
+    }
+    .box {
+      position: absolute;
+      left: 50%;
+      bottom: 160px;
+      margin: 0 auto;
+      padding: 0 80px;
+      max-width: 1360px;
+      width: 100%;
+      transform: translate(-50%, 0);
+      line-height: 1.4;
+      z-index: 1;
+      &-img {
+        margin-bottom: 90px;
+      }
+      &-title {
+        font-size: 40px;
+        font-weight: bold;
+        color: #ff1448;
+      }
+      &-text {
+        margin-top: 14px;
+        font-size: 20px;
+      }
+    }
+  }
+  &-pagination {
+    position: static;
+    &-bullet {
+      width: 106px;
+      height: 26px;
+      background: none;
+      border-radius: 0;
+      border-bottom: 1px solid #fff;
+      opacity: 0.2;
+      text-align: left;
+      cursor: pointer;
+      &-active {
+        border-width: 3px;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.section {
+  position: relative;
+  line-height: 1.4;
+  z-index: 1;
+  &-inner {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    max-width: 1360px;
+    width: 100%;
+    padding: 0 80px;
+  }
+  &-box {
+    padding: 40px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+  &-title {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1;
+    sup {
+      display: block;
+      margin-bottom: 12px;
+    }
+    span {
+      font-size: 32px;
+    }
+  }
+  &-text {
+    margin-top: 24px;
+    font-size: 16px;
+  }
+  &-01 {
+    min-height: 585px;
+    background: rgb(244, 0, 54);
+    background: linear-gradient(
+      145deg,
+      rgba(244, 0, 54, 1) 24%,
+      rgba(163, 0, 147, 1) 100%
+    );
+    .section {
+      &-row {
+        display: flex;
+      }
+      &-img {
+        margin-bottom: 32px;
+        position: relative;
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+    .btn {
+      margin-top: 32px;
+    }
+  }
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 960px) {
+  img {
+    max-width: 100%;
+  }
+
+  .bi {
+    top: -111px;
+    left: -75px;
+    width: 200px;
+    height: 200px;
+    &::before {
+      width: 200px;
+      height: 200px;
+    }
+    img {
+      width: 68px;
+    }
+    a {
+      right: 42px;
+      bottom: 56px;
+    }
+  }
+
+  .header {
+    min-height: 300px;
+  }
+
+  .swiper {
+    &-slide {
+      height: 300px;
+      .box {
+        padding: 0 12px;
+        bottom: 88px;
+        &-img {
+          max-width: 220px;
+          margin-bottom: 60px;
+        }
+        &-title {
+          font-size: 24px;
+        }
+        &-text {
+          margin-top: 12px;
+          font-size: 16px;
+        }
+      }
+    }
+    &-inner {
+      top: auto;
+      bottom: 58px;
+    }
+    &-button {
+      &-prev,
+      &-next {
+        padding: 0 12px;
+        &::after {
+          font-size: 24px;
+        }
+      }
+    }
+    &-control {
+      left: 0;
+      right: auto;
+      width: 100%;
+    }
+    &-pagination {
+      flex: 1;
+      display: flex;
+      &-bullet {
+        width: 100%;
+        flex: 1;
+      }
+    }
+  }
+
+  .section {
+    &-inner {
+      display: block;
+    }
+    &-title {
+      font-size: 18px;
+      sup {
+        margin-bottom: 10px;
+      }
+      span {
+        font-size: 24px;
+      }
+    }
+    &-text {
+      margin-top: 12px;
+      font-size: 14px;
+    }
+    &-01 {
+      height: auto;
+      .section {
+        &-row {
+          flex-direction: column;
+          flex-wrap: wrap;
+        }
+        &-inner {
+          padding: 16px;
+        }
+        &-img {
+          margin-bottom: 16px;
+        }
+        &-box {
+          flex: 1;
+          display: block;
+          padding: 0;
+          margin-top: 0;
+          &:first-child {
+            margin-bottom: 30px;
+          }
+        }
+      }
+      .btn {
+        margin-top: 16px;
+      }
+    }
+    &-02 {
+      padding: 80px 0 80px 26px;
+      .section {
+        &-inner {
+          padding: 30px;
+          border-right: none;
+        }
+        &-img {
+          top: -65px;
+          margin: 0 -30px -30px 0;
+        }
+      }
+      .btn {
+        margin-top: 38px;
+      }
+    }
+  }
+}
