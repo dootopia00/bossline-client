@@ -14,33 +14,33 @@
     <div class="menu">
         <ul class="menu-list">
         <!--MEMO: is-active 클래스명 추가 시 활성화-->
-        <li class="menu-item" ng-class="{'is-active' : type == 'lineage-m'}">
-            <a ng-click="pageMovement('botam-smart', {type:'lineage-m'})" href="javascript:void(0);" class="menu-link">
+        <li class="menu-item" ng-class="{'is-active' : type == 'lineage_m'}">
+            <a ng-click="pageMovement('botam_smart', {type:'lineage_m'})" href="javascript:void(0);" class="menu-link">
             <span>리니지M</span>
             </a>
         </li>
-        <li class="menu-item" ng-class="{'is-active' : type == 'lineage-2m'}">
-            <a ng-click="pageMovement('botam-smart', {type:'lineage-2m'})" href="javascript:void(0);" class="menu-link">
+        <li class="menu-item" ng-class="{'is-active' : type == 'lineage_2m'}">
+            <a ng-click="pageMovement('botam_smart', {type:'lineage_2m'})" href="javascript:void(0);" class="menu-link">
             <span>리니지2M</span>
             </a>
         </li>
-        <li class="menu-item" ng-class="{'is-active' : type == 'lineage-w'}">
-            <a ng-click="pageMovement('botam-smart', {type:'lineage-w'})" href="javascript:void(0);" class="menu-link">
+        <li class="menu-item" ng-class="{'is-active' : type == 'lineage_w'}">
+            <a ng-click="pageMovement('botam_smart', {type:'lineage_w'})" href="javascript:void(0);" class="menu-link">
             <span>리니지W</span>
             </a>
         </li>
-        <li class="menu-item" ng-class="{'is-active' : type == 'trickster-m'}">
-            <a ng-click="pageMovement('botam-smart', {type:'trickster-m'})" href="javascript:void(0);" class="menu-link">
+        <li class="menu-item" ng-class="{'is-active' : type == 'trickster_m'}">
+            <a ng-click="pageMovement('botam_smart', {type:'trickster_m'})" href="javascript:void(0);" class="menu-link">
             <span>트릭스터M</span>
             </a>
         </li>
         <li class="menu-item" ng-class="{'is-active' : type == 'odin'}">
-            <a ng-click="pageMovement('botam-smart', {type:'odin'})" href="javascript:void(0);" class="menu-link">
+            <a ng-click="pageMovement('botam_smart', {type:'odin'})" href="javascript:void(0);" class="menu-link">
             <span>오딘:발할라라이징</span>
             </a>
         </li>
         <li class="menu-item" ng-class="{'is-active' : type == 'etc'}">
-            <a ng-click="pageMovement('botam-smart', {type:'etc'})" href="javascript:void(0);" class="menu-link">
+            <a ng-click="pageMovement('botam_smart', {type:'etc'})" href="javascript:void(0);" class="menu-link">
             <span>그 외 게임</span>
             </a>
         </li>
@@ -55,7 +55,7 @@
         <span class="cover-breadcrumb">
         <a href="javascript:void(0);">홈</a>
         <a href="javascript:void(0);">{{ typeName }}</a>
-        <a href="javascript:void(0);">{{ botName }}</a>
+        <a href="javascript:void(0);">{{ subTypeName }}</a>
         </span>
     </div>
 
@@ -66,9 +66,9 @@
   <main class="container">
     <div class="tab" role="navigation">
       <div class="tab-row">
-        <a href="javascript:void(0);" class="tab-link" ng-click="pageMovement('botam-smart', {bot:'basic'})"  ng-class="{'is-active' : bot == 'basic'}">기본봇</a>
-        <a href="javascript:void(0);" class="tab-link" ng-click="pageMovement('botam-smart', {bot:'manage'})" ng-class="{'is-active' : bot == 'manage'}" ng-if="type!='etc'">분배봇</a>
-        <a href="javascript:void(0);" class="tab-link" ng-click="pageMovement('botam-smart', {bot:'point'})"  ng-class="{'is-active' : bot == 'point'}" ng-if="type!='etc'">포인트봇</a>
+        <a href="javascript:void(0);" class="tab-link" ng-click="pageMovement('botam_smart', {subType:'basic'})"  ng-class="{'is-active' : subType == 'basic'}">기본봇</a>
+        <a href="javascript:void(0);" class="tab-link" ng-click="pageMovement('botam_smart', {subType:'manage'})" ng-class="{'is-active' : subType == 'manage'}" ng-if="type!='etc'">분배봇</a>
+        <a href="javascript:void(0);" class="tab-link" ng-click="pageMovement('botam_smart', {subType:'point'})"  ng-class="{'is-active' : subType == 'point'}" ng-if="type!='etc'">포인트봇</a>
       </div>
     </div>
     <div class="content">
@@ -76,7 +76,7 @@
         <div class="title-group-col col-auto">
           <h2 class="title-group-text">
             <img src="./assets/img/icon_title01.png" alt="" />
-            <span>{{ botName }}</span>
+            <span>{{ subTypeName }}</span>
           </h2>
           <p>{{ intro }}</p>
         </div>

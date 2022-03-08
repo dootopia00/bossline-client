@@ -1,10 +1,10 @@
 angular.module('ngApp').controller("botamSmartCtrl", ['$scope', '$http','$q','$timeout','AuthenticationService','$state','$stateParams', '$sce' , function ($scope, $http, $q, $timeout, AuthenticationService, $state, $stateParams, $sce ) {
     
 
-    $scope.type = ($state.params.type)  ?  $state.params.type : 'lineage-m';
-    $scope.bot  = ($state.params.bot)   ?  $state.params.bot : 'basic';
+    $scope.type = ($state.params.type)  ?  $state.params.type : 'lineage_m';
+    $scope.subType  = ($state.params.subType)   ?  $state.params.subType : 'basic';
 
-    $scope.botName = null;
+    $scope.subTypeName = null;
     $scope.intro = null;
 
     $scope.typeName = null;
@@ -21,16 +21,16 @@ angular.module('ngApp').controller("botamSmartCtrl", ['$scope', '$http','$q','$t
         // type 종류
         // lineage-m, lineage-2m, lineage-w, trickster-m, odin, etc
         
-        if($scope.type == 'lineage-m'){
+        if($scope.type == 'lineage_m'){
             $scope.typeName = '리니지M';
             $scope.backgroundImage = './assets/img/bg_cover03.jpg';
-        }else if($scope.type == 'lineage-2m'){
+        }else if($scope.type == 'lineage_2m'){
             $scope.typeName = '리니지2M';
             $scope.backgroundImage = './assets/img/bg_cover02.jpg';
-        }else if($scope.type == 'lineage-w'){
+        }else if($scope.type == 'lineage_w'){
             $scope.typeName = '리니지W';
             $scope.backgroundImage = './assets/img/lineage_w_bg.jpg';
-        }else if($scope.type == 'trickster-m'){
+        }else if($scope.type == 'trickster_m'){
             $scope.typeName = '트릭스터M';
             $scope.backgroundImage = './assets/img/bg_tricsterm_03.png';
         }else if($scope.type == 'odin'){
@@ -41,28 +41,29 @@ angular.module('ngApp').controller("botamSmartCtrl", ['$scope', '$http','$q','$t
             $scope.backgroundImage = './assets/img/bg_cover03.jpg';
 
             // etc 는 분배봇, 포인트봇 이 없음
-            // $state.params.bot = 'basic';
-            $scope.bot = 'basic';
+            // $state.params.subType = 'basic';
+            $scope.subType = 'basic';
             
-            // console.log('$state.params.bot : ', $state.params.bot);
+            // console.log('$state.params.subType : ', $state.params.subType);
         }
 
 
         // bot 종류
         // basic, manage, point
 
-        if($scope.bot == 'basic'){
-            $scope.botName = '기본봇';
+        if($scope.subType == 'basic'){
+            $scope.subTypeName = '기본봇';
             $scope.intro = $scope.typeName + ' 전용 보스시간 스케쥴 관리 봇입니다.'
-        }else if($scope.bot == 'manage'){
-            $scope.botName = '분배봇';
+        }else if($scope.subType == 'manage'){
+            $scope.subTypeName = '분배봇';
             $scope.intro = $scope.typeName + ' 전용봇에 아이템 관리 및 참여인원 관리가 추가된 프리미엄 봇입니다.'
-        }else if($scope.bot == 'point'){
-            $scope.botName = '포인트봇';
+        }else if($scope.subType == 'point'){
+            $scope.subTypeName = '포인트봇';
             $scope.intro = $scope.typeName + ' 전용봇에 보스참여자별 점수 획득기능이 추가된 프리미엄 봇입니다.'
         }
 
 
+        console.log('$scope.subType : ', $scope.subType)
     }
 
     

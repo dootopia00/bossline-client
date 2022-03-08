@@ -54,12 +54,12 @@ ngApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, lazyIm
                 files: ['/assets/js/views/main/main.js?v='+version,]
             },
             {
-                name : 'botam-smart',
-                files: ['/assets/js/views/botam-smart/botam.smart.js?v='+version,]
+                name : 'botam_smart',
+                files: ['/assets/js/views/botam_smart/botam_smart.js?v='+version,]
             },
             {
-                name : 'line-smart',
-                files: ['/assets/js/views/line-smart/line.smart.js?v='+version,]
+                name : 'line_smart',
+                files: ['/assets/js/views/line_smart/line_smart.js?v='+version,]
             },
         ]
     });
@@ -95,12 +95,12 @@ ngApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, lazyIm
                 }]
             }
         })
-        .state('botam-smart', {
+        .state('botam_smart', {
             // main router
-            url: '/botam-smart?:type&:bot',
+            url: '/botam_smart?:type&:subType',
             views: {
                 "lazyLoadView": {  // index.php에 있는 ui-view
-                    templateUrl: "/views/botam-smart/botam.smart.php" //js에서 사용할 뷰파일 php파일
+                    templateUrl: "/views/botam_smart/botam_smart.php" //js에서 사용할 뷰파일 php파일
                 }
             },
             params: {
@@ -108,7 +108,7 @@ ngApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, lazyIm
                     value : null,
                     dynamic : false
                 },
-                bot: {
+                subType: {
                     value : null,
                     dynamic : false
                 },
@@ -117,25 +117,33 @@ ngApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, lazyIm
             },
             resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load('botam-smart'); // 사용할 js명
+                    return $ocLazyLoad.load('botam_smart'); // 사용할 js명
                 }]
             }
         })
-        .state('line-smart', {
+        .state('line_smart', {
             // main router
-            url: '/line-smart',
+            url: '/line_smart?:type&:subType',
             views: {
                 "lazyLoadView": {  // index.php에 있는 ui-view
-                    templateUrl: "/views/line-smart/line.smart.php" //js에서 사용할 뷰파일 php파일
+                    templateUrl: "/views/line_smart/line_smart.php" //js에서 사용할 뷰파일 php파일
                 }
             },
             params: {
+                type: {
+                    value : null,
+                    dynamic : false
+                },
+                subType: {
+                    value : null,
+                    dynamic : false
+                },
                 state : null,
                 hash : null,
             },
             resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load('line-smart'); // 사용할 js명
+                    return $ocLazyLoad.load('line_smart'); // 사용할 js명
                 }]
             }
         })

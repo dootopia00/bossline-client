@@ -191,8 +191,8 @@
         <img src="./assets/img/img_bi.png" alt="BOSS LINE" />
       </a>
       <div class="nav-menu">
-        <a href="javascript:void(0);" ng-click="pageMovement('botam-smart')">보탐스마트</a>
-        <a href="javascript:void(0);" ng-click="pageMovement('line-smart')"  >라인스마트</a>
+        <a href="javascript:void(0);" ng-click="pageMovement('botam_smart')">보탐스마트</a>
+        <a href="javascript:void(0);" ng-click="pageMovement('line_smart')"  >라인스마트</a>
       </div>
       <span class="nav-line"></span>
       <div id='mypage' class="nav-auth" >
