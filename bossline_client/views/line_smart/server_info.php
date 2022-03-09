@@ -10,7 +10,7 @@
       <h2 class="title-group-text">
         <span>
           <em>{{ typeName }}</em>
-          서버정보
+          서버정보 
         </span>
       </h2>
     </div>
