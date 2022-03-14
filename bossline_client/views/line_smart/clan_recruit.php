@@ -13,7 +13,7 @@
           <em>{{ typeName }}</em>
           혈원모집
         </span>
-      </h2>
+      </h2> 
     </div>
     <div class="title-group-col">
       <!--MEMO: is-open 클래스명 추가 시 하위 콘텐츠가 열립니다. -->
