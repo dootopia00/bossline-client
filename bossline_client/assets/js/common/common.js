@@ -15,20 +15,18 @@ var SERVICE_DOMAIN = null;
 console.log('API_SERVER_HOSTNAME : ', API_SERVER_HOSTNAME);
 if(API_SERVER_HOSTNAME == 'localhost'){
 
-    // API_SERVER = "//localhost:7000";
     API_SERVER = "http://localhost:9000";
     SERVICE_DOMAIN = "http://localhost:9001";
 
+}else{
 
+    API_SERVER = "http://client.bossline.gg";
+    SERVICE_DOMAIN = "http://api.bossline.gg";
 }
-// else if(API_SERVER_HOSTNAME == 'admin.dooropen.io'){ 
-
-//     API_SERVER = "https://apis.dooropen.io";
-//     SERVICE_DOMAIN = "http://admin.dooropen.io";
-// }
 
 
 var url = window.location.hash.split("/")[1];
+
 if(url == null){
     document.location.replace(SERVICE_DOMAIN+'/#/main');
 }
