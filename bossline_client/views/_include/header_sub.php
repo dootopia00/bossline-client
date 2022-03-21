@@ -1,4 +1,4 @@
-<div ng-if="nowHashUrl == 'botam_-smart'">
+<div ng-if="nowHashUrl == 'botam_smart'">
 
     <div class="menu">
         <ul class="menu-list">
