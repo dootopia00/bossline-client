@@ -59,7 +59,12 @@ ngApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, lazyIm
             },
             {
                 name : 'line_smart',
-                files: ['/assets/js/views/line_smart/line_smart.js?v='+version,]
+                files: [
+                    '/assets/js/views/line_smart/line_smart.js?v='+version,
+                    '/assets/js/views/line_smart/clan_recruit.js?v='+version,
+                    '/assets/js/views/line_smart/clan_info.js?v='+version,
+                    '/assets/js/views/line_smart/server_info.js?v='+version,
+            ]
             },
         ]
     });
