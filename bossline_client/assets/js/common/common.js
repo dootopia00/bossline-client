@@ -20,8 +20,8 @@ if(API_SERVER_HOSTNAME == 'localhost'){
 
 }else{
 
-    API_SERVER = "http://api.bossline.gg";
-    SERVICE_DOMAIN = "http://client.bossline.gg";
+    API_SERVER = "https://api.bossline.gg";
+    SERVICE_DOMAIN = "https://client.bossline.gg";
 }
 
 

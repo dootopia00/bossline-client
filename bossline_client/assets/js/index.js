@@ -215,4 +215,26 @@ ngApp.controller("IndexCtrl", ['$scope', '$http','$q','$timeout','Authentication
     }
 
     
+    $scope.kakaoLogin = function(){
+
+        console.log('aaaaaaaa');
+        window.Kakao.init("269c5b7a046160744b444b4f0beabf9e");
+
+        window.Kakao.Auth.login({
+        scope: 'account_email',
+        success: function(authObj) {
+            // console.log(authObj);
+            window.Kakao.API.request({
+            url:'/v2/user/me',
+            success: res => {
+                const kakao_account = res.kakao_account;
+                // console.log(res);
+                postForm('/', {userId: res.id, accessToken: authObj.access_token});
+            }
+            });
+        }
+        });
+    }
+
+    
 }]);

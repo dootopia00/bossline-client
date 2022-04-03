@@ -54,10 +54,102 @@
     </div>
 
 
-    <?php include $clan_recruit; ?>
-    <?php include $server_info; ?>
-    <?php include $clan_info; ?>
+    <div class="content">
+      <div class="breadcrumb">
+        <a href="javascript:void(0);">홈</a>
+        <a href="javascript:void(0);">중분류</a>
+        <a href="javascript:void(0);">하분류</a>
+      </div>
+
+      <header class="title-group is-reverse">
+        <div class="title-group-col col-auto">
+          <h2 class="title-group-text">
+            <span>
+              <em>{{ typeName }}</em>
+              혈원모집
+            </span>
+          </h2> 
+        </div>
+        <div class="title-group-col">
+          <!--MEMO: is-open 클래스명 추가 시 하위 콘텐츠가 열립니다. -->
+          <div class="info-card js-info-card-container" ng-class="{'is-open' : myInfo == true}">
+            <div class="info-card-header">
+              <h3>
+                <img src="./assets/img/img_premium.png" alt="PREMIUM" />
+              </h3>
+              <button type="button" class="info-card-btn">
+                <img src="./assets/img/icon_pencil.png" alt="수정" />
+              </button>
+              <button type="button" class="info-card-btn">
+                <img src="./assets/img/icon_enter.png" alt="확인" />
+              </button>
+            </div>
+            <div class="info-card-body">
+              <strong class="game-id">
+                IDIDIDIDIDIDIDIDIDIDIDIDIDIDIDIDIDIDIDID
+              </strong>
+              <dl>
+                <dt>
+                  <span class="icon">
+                    <img src="./assets/img/icon_info-card01.png" alt="" />
+                  </span>
+                  <span>혈맹</span>
+                </dt>
+                <!--MEMO: readonly 속성 삭제 시 입력 가능한 상태가 됩니다.-->
+                <dd><input type="text" value="귀족" readonly /></dd>
+              </dl>
+              <dl>
+                <dt>
+                  <span class="icon">
+                    <img src="./assets/img/icon_info-card02.png" alt="" />
+                  </span>
+                  <span>방어</span>
+                </dt>
+                <dd><input type="text" value="210" /></dd>
+              </dl>
+              <dl>
+                <dt>
+                  <span class="icon">
+                    <img src="./assets/img/icon_info-card03.png" alt="" />
+                  </span>
+                  <span>레벨</span>
+                </dt>
+                <dd><input type="text" value="65" readonly /></dd>
+              </dl>
+              <dl>
+                <dt>
+                  <span class="icon">
+                    <img src="./assets/img/icon_info-card04.png" alt="" />
+                  </span>
+                  <span>변신</span>
+                </dt>
+                <dd><input type="text" value="쿠막" /></dd>
+              </dl>
+              <dl>
+                <dt>
+                  <span class="icon">
+                    <img src="./assets/img/icon_info-card05.png" alt="" />
+                  </span>
+                  <span>직업</span>
+                </dt>
+                <dd><input type="text" value="기사" /></dd>
+              </dl>
+            </div>
+            <div class="info-card-bottom">
+              <button type="button" class="info-card-btn js-info-card-toggle" ng-click="myInfoClick()">
+                <img src="./assets/img/icon_arrow-bottom.png" alt="열기/닫기"/>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      
+      <?php include $clan_recruit; ?>
+      <?php include $server_info; ?>
+      <?php include $clan_info; ?>
     
+    </div>
 
 
   </main>

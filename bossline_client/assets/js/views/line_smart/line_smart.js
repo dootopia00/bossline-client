@@ -6,6 +6,7 @@ angular.module('ngApp').controller("lineSmartCtrl", ['$scope', '$http','$q','$ti
 
     $scope.typeName = null;
 
+    $scope.myInfo = false;
     
     $scope.init = function(){
         
@@ -28,6 +29,11 @@ angular.module('ngApp').controller("lineSmartCtrl", ['$scope', '$http','$q','$ti
             $scope.typeName = '오딘:발할라라이징';
         }
 
+    }
+
+    $scope.myInfoClick = function(){
+
+        $scope.myInfo = !$scope.myInfo;
     }
 
 
