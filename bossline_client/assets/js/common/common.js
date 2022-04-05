@@ -59,14 +59,16 @@ function AuthenticationService($http,$state) {
     /**
      * 로그인 return
      */
-    function Login(userId, callback, state) {
+    function Login(userId, email, callback, state) {
 
         var url = API_SERVER+'/user/sign_in';
 
         console.log('url : ', url)
         var params = $.param({
-            uuid        : userId,
+            user_id        : userId,
+            email          : email,
         });
+        console.log('params : ', params)
         
         $http.post(url, params).then(function onSuccess(response) {
 
@@ -75,18 +77,16 @@ function AuthenticationService($http,$state) {
                 
                 if (resCode == 200) {
 
-                    var NG_ID               = (items.data.info.admin_id) ? items.data.info.admin_id : '';
-                    var NG_USER_ID          = (items.data.info.uuid) ? items.data.info.uuid : '';
-                    var NG_NAME             = (items.data.info.admin_name) ? items.data.info.admin_name : '';
-                    var NG_NICKNAME         = (items.data.info.nickname) ? items.data.info.nickname : '';
+                    var NG_USER_ID          = (items.data.info.user_id) ? items.data.info.user_id : '';
+                    var NG_EMAIL            = (items.data.info.email) ? items.data.info.email : '';
+                    var NG_USER_TYPE        = (items.data.info.type) ? items.data.info.type : '';
                     var NG_REG_DATE         = (items.data.info.reg_date) ? items.data.info.reg_date : '';
                     var NG_AUTHORIZATION    = (items.data.info.authorization) ? items.data.info.authorization : '';
                     
-                    localStorage.setItem('NG_ADMIN_ID', NG_ID);
                     localStorage.setItem('NG_USER_ID', NG_USER_ID);
-                    localStorage.setItem('NG_ADMIN_NAME', NG_NAME);
-                    localStorage.setItem('NG_ADMIN_NICKNAME', NG_NICKNAME);
-                    localStorage.setItem('NG_ADMIN_REG_DATE', NG_REG_DATE);
+                    localStorage.setItem('NG_EMAIL', NG_EMAIL);
+                    localStorage.setItem('NG_USER_TYPE', NG_USER_TYPE);
+                    localStorage.setItem('NG_REG_DATE', NG_REG_DATE);
                     localStorage.setItem('NG_AUTHORIZATION', NG_AUTHORIZATION);
                     
                     angular.element(document.getElementById('ngBody')).scope().sessionInit();
@@ -131,11 +131,10 @@ function AuthenticationService($http,$state) {
      */
     function Logout(callback) {
 
-        localStorage.removeItem('NG_ADMIN_ID');
-        localStorage.removeItem('NG_ADMIN_UUID');
-        localStorage.removeItem('NG_ADMIN_NAME');
-        localStorage.removeItem('NG_ADMIN_NICKNAME');
-        localStorage.removeItem('NG_ADMIN_REG_DATE');
+        localStorage.removeItem('NG_USER_ID');
+        localStorage.removeItem('NG_EMAIL');
+        localStorage.removeItem('NG_USER_TYPE');
+        localStorage.removeItem('NG_REG_DATE');
         localStorage.removeItem('NG_AUTHORIZATION');
 
         angular.element(document.getElementById('ngBody')).scope().sessionInit();

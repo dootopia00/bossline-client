@@ -2,7 +2,7 @@
 
 ngApp.controller("IndexCtrl", ['$scope', '$http','$q','$timeout','AuthenticationService','$state','$document','$window','$ocLazyLoad','BackwardControlService','$interval', function ($scope,$http,$q,$timeout, AuthenticationService, $state,$document,$window ,$ocLazyLoad,BackwardControlService,$interval) {
 
-    $scope.serviceName = 'dooropen';
+    $scope.serviceName = 'bossline';
 
     /** [공통] platform [PC, M] 구분 */
     $scope.platformCheck = platformCheck();
@@ -10,16 +10,18 @@ ngApp.controller("IndexCtrl", ['$scope', '$http','$q','$timeout','Authentication
      * 태블릿 PC 여부 확인
      */
 
+    
+    $scope.userId  = null;
+
     /**  
      * [공통] 로컬 세션 정보 
      * - 회원정보, 폰트크기
     */
-    $scope.NG_ADMIN_ID          =  (localStorage.getItem('NG_ADMIN_ID')) ? (localStorage.getItem('NG_ADMIN_ID')) : ''; 
-    $scope.NG_ADMIN_UUID        =  (localStorage.getItem('NG_ADMIN_UUID')) ? (localStorage.getItem('NG_ADMIN_UUID')) : '';
-    $scope.NG_ADMIN_NAME        =  (localStorage.getItem('NG_ADMIN_NAME')) ? (localStorage.getItem('NG_ADMIN_NAME')) : '';
-    $scope.NG_ADMIN_NICKNAME    =  (localStorage.getItem('NG_ADMIN_NICKNAME')) ? (localStorage.getItem('NG_ADMIN_NICKNAME')) : '';
-    $scope.NG_ADMIN_REG_DATE    =  (localStorage.getItem('NG_ADMIN_REG_DATE')) ? (localStorage.getItem('NG_ADMIN_REG_DATE')) : '';
-    $scope.NG_AUTHORIZATION     =  (localStorage.getItem('NG_AUTHORIZATION')) ? (localStorage.getItem('NG_AUTHORIZATION')) : '';
+    $scope.NG_USER_ID          =  (localStorage.getItem('NG_USER_ID')) ? (localStorage.getItem('NG_USER_ID')) : ''; 
+    $scope.NG_EMAIL            =  (localStorage.getItem('NG_EMAIL')) ? (localStorage.getItem('NG_EMAIL')) : ''; 
+    $scope.NG_USER_TYPE        =  (localStorage.getItem('NG_USER_TYPE')) ? (localStorage.getItem('NG_USER_TYPE')) : '';
+    $scope.NG_AUTHORIZATION    =  (localStorage.getItem('NG_AUTHORIZATION')) ? (localStorage.getItem('NG_AUTHORIZATION')) : '';
+    $scope.NG_REG_DATE         =  (localStorage.getItem('NG_REG_DATE')) ? (localStorage.getItem('NG_REG_DATE')) : '';
 
 
     $scope.init = function(){
@@ -35,12 +37,11 @@ ngApp.controller("IndexCtrl", ['$scope', '$http','$q','$timeout','Authentication
     $scope.sessionInit = function(){
 
         console.log('sessionInit success')
-        $scope.NG_ADMIN_ID          =  (localStorage.getItem('NG_ADMIN_ID')) ? (localStorage.getItem('NG_ADMIN_ID')) : ''; 
-        $scope.NG_ADMIN_UUID        =  (localStorage.getItem('NG_ADMIN_UUID')) ? (localStorage.getItem('NG_ADMIN_UUID')) : '';
-        $scope.NG_ADMIN_NAME        =  (localStorage.getItem('NG_ADMIN_NAME')) ? (localStorage.getItem('NG_ADMIN_NAME')) : '';
-        $scope.NG_ADMIN_NICKNAME    =  (localStorage.getItem('NG_ADMIN_NICKNAME')) ? (localStorage.getItem('NG_ADMIN_NICKNAME')) : '';
-        $scope.NG_ADMIN_REG_DATE    =  (localStorage.getItem('NG_ADMIN_REG_DATE')) ? (localStorage.getItem('NG_ADMIN_REG_DATE')) : '';
-        $scope.NG_AUTHORIZATION     =  (localStorage.getItem('NG_AUTHORIZATION')) ? (localStorage.getItem('NG_AUTHORIZATION')) : '';
+        $scope.NG_USER_ID          =  (localStorage.getItem('NG_USER_ID')) ? (localStorage.getItem('NG_USER_ID')) : ''; 
+        $scope.NG_EMAIL            =  (localStorage.getItem('NG_EMAIL')) ? (localStorage.getItem('NG_EMAIL')) : '';
+        $scope.NG_USER_TYPE        =  (localStorage.getItem('NG_USER_TYPE')) ? (localStorage.getItem('NG_USER_TYPE')) : '';
+        $scope.NG_AUTHORIZATION    =  (localStorage.getItem('NG_AUTHORIZATION')) ? (localStorage.getItem('NG_ADMIN_NICKNAME')) : '';
+        $scope.NG_REG_DATE         =  (localStorage.getItem('NG_REG_DATE')) ? (localStorage.getItem('NG_REG_DATE')) : '';
     }
 
     /** [공통] logout */
@@ -227,12 +228,11 @@ ngApp.controller("IndexCtrl", ['$scope', '$http','$q','$timeout','Authentication
             window.Kakao.API.request({
             url:'/v2/user/me',
             success: res => {
+                
                 const kakao_account = res.kakao_account;
-                console.log('res : ',  res);
-                // return;
-                // postForm('/', {userId: res.id, accessToken: authObj.access_token});
+                console.log('kakao res : ',  res.id);
 
-                AuthenticationService.Login($scope.adminId, function(result,msg){
+                AuthenticationService.Login(res.id, res.kakao_account.email, function(result,msg){
 
                     if(result){ 
                         

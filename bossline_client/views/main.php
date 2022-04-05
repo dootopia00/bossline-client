@@ -196,7 +196,8 @@
       </div>
       <span class="nav-line"></span>
       <div id='mypage' class="nav-auth" >
-        <a ng-click="kakaoLogin()" href="javascript:void(0);">로그인</a>
+        <a ng-click="kakaoLogin()" href="javascript:void(0);" ng-if="NG_USER_ID == 'null'">로그인</a>
+        <a ng-click="pageMovement('my_page')" href="javascript:void(0);" ng-if="NG_USER_ID != 'null'">마이페이지</a>
       </div>
     </nav>
 

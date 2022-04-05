@@ -8,6 +8,9 @@ angular.module('ngApp').controller("lineSmartCtrl", ['$scope', '$http','$q','$ti
 
     $scope.myInfo = false;
     
+    $scope.serverList = null;
+    $scope.serverCount = null;
+
     $scope.init = function(){
         
         // 비로그인시 로그인 페이지 이동
@@ -29,11 +32,57 @@ angular.module('ngApp').controller("lineSmartCtrl", ['$scope', '$http','$q','$ti
             $scope.typeName = '오딘:발할라라이징';
         }
 
+        console.log('$scope.type : ', $scope.type)
+        $scope.getServerList();
     }
 
     $scope.myInfoClick = function(){
 
         $scope.myInfo = !$scope.myInfo;
+    }
+
+    $scope.getServerList = function(){
+
+
+        var params = $.param({
+            type           : $scope.type,
+        });
+
+        $http.post(API_SERVER+'/server/server_list',params)
+            .then(function onSuccess(response)
+            {
+                var items = response.data;
+                $scope.resCode = items.res_code;
+
+                if($scope.resCode == 200){
+                    
+                    $scope.serverList = items.data.list;
+                    $scope.serverCount = items.data.total_count;
+                    
+                    
+                }else{
+                
+                    if($scope.resCode == 500){
+
+                        $scope.resCode = items.data.err_code;
+                        $scope.resMsg  = items.data.err_msg;
+                    
+                    }else{
+                        $scope.resCode = $scope.resCode;
+                        $scope.resMsg  = items.msg;
+                    }
+
+                    alert($scope.resMsg);
+                    $scope.itemsList = [];
+                    $scope.totalCount = 0;
+                }
+
+            },
+            function onError(response)
+            {
+                alert('정보를 불러오지 못했습니다.');
+            }
+        );
     }
 
 

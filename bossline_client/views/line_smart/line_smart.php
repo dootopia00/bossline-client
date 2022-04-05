@@ -13,7 +13,7 @@
     <div class="menu">
         <ul class="menu-list">
         <!--MEMO: is-active 클래스명 추가 시 활성화-->
-        <li class="menu-item" ng-class="{'is-active' : type == 'lineage_m'}">
+        <!-- <li class="menu-item" ng-class="{'is-active' : type == 'lineage_m'}">
             <a ng-click="pageMovement('line_smart', {type:'lineage_m'})" href="javascript:void(0);" class="menu-link">
             <span>리니지M</span>
             </a>
@@ -22,13 +22,13 @@
             <a ng-click="pageMovement('line_smart', {type:'lineage_2m'})" href="javascript:void(0);" class="menu-link">
             <span>리니지2M</span>
             </a>
-        </li>
+        </li> -->
         <li class="menu-item" ng-class="{'is-active' : type == 'lineage_w'}">
             <a ng-click="pageMovement('line_smart', {type:'lineage_w'})" href="javascript:void(0);" class="menu-link">
             <span>리니지W</span>
             </a>
         </li>
-        <li class="menu-item" ng-class="{'is-active' : type == 'trickster_m'}">
+        <!-- <li class="menu-item" ng-class="{'is-active' : type == 'trickster_m'}">
             <a ng-click="pageMovement('line_smart', {type:'trickster_m'})" href="javascript:void(0);" class="menu-link">
             <span>트릭스터M</span>
             </a>
@@ -37,7 +37,7 @@
             <a ng-click="pageMovement('line_smart', {type:'odin'})" href="javascript:void(0);" class="menu-link">
             <span>오딘:발할라라이징</span>
             </a>
-        </li>
+        </li> -->
         
         </ul>
     </div>
