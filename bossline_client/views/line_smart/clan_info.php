@@ -17,16 +17,25 @@
         </dd>
         </dl>
         <dl class="info-item">
-        <dt>서버</dt>
-        <dd>오필리아</dd>
+            <dt class="info-active">서버</dt>
+            <!-- <dd>오필리아</dd> -->
+            <span class="select">
+                <select name="" id="">
+                    <option value="">서버정보</option>
+                    <option value="">군터1</option>
+                    <option value="">군터2</option>
+                    <option value="">군터3</option>
+                    <option value="">군터4</option>
+                </select>
+            </span>
         </dl>
         <dl class="info-item">
-        <dt>혈맹명</dt>
-        <dd>가즈아</dd>
+            <dt class="info-active">혈맹명</dt>
+            <dd>가즈아</dd>
         </dl>
         <dl class="info-item">
-        <dt>혈레벨</dt>
-        <dd>10</dd>
+            <dt>혈레벨</dt>
+            <dd>10</dd>
         </dl>
         <dl class="info-item">
         <dt>모집 클래스</dt>
@@ -36,7 +45,15 @@
                 <img src="./assets/img/icon_info-card05.png" alt="" />
             </span>
             <span>직업</span>
-            <span>기사</span>
+            <!-- <span>기사</span> -->
+            <span class="select">
+                <select name="" id="">
+                    <option value="">기사</option>
+                    <option value="">군터2</option>
+                    <option value="">군터3</option>
+                    <option value="">군터4</option>
+                </select>
+            </span>
             </span>
         </dd>
         </dl>

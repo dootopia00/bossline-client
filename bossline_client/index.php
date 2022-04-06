@@ -50,7 +50,7 @@
     <link rel="stylesheet" href="/assets/fonts/NotoSansKR/font.css" />
     <link rel="stylesheet" href="/assets/fonts/Poppins/font.css" />
     <link rel="stylesheet" href="/assets/css/common.css" />
-    <link rel="stylesheet" href="/assets/css/main.css" />
+    <!-- <link rel="stylesheet" href="/assets/css/main.css" /> -->
     <link rel="stylesheet" href="/assets/css/joeys.css" />
     <link rel="stylesheet" href="/assets/css/sub.css" />
     <link rel="stylesheet" href="/assets/css/add.css" />
