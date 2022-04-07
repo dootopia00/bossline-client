@@ -7,7 +7,7 @@
         </a>
         <div class="gnb-menu">
             <a href="javascript:void(0);" ng-click="pageMovement('botam_smart')" ng-class="{'is-active' : nowHashUrl == 'botam_smart'}">보탐스마트</a>
-            <a href="javascript:void(0);" ng-click="pageMovement('line_smart')"  ng-class="{'is-active' : nowHashUrl == 'line_smart'}">라인스마트</a>
+            <a href="javascript:void(0);" ng-click="pageMovement('line_smart', {type:'lineage_w'})"  ng-class="{'is-active' : nowHashUrl == 'line_smart'}">라인스마트</a>
         </div>
         <span class="gnb-line"></span>
         <div id='mypage' class="gnb-auth">

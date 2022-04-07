@@ -1,7 +1,5 @@
 angular.module('ngApp').controller("clanInfoCtrl", ['$scope', '$http','$q','$timeout','AuthenticationService','$state','$stateParams', '$sce' , function ($scope, $http, $q, $timeout, AuthenticationService, $state, $stateParams, $sce ) {
     
-
-    
     $scope.init = function(){
         
         // 비로그인시 로그인 페이지 이동
@@ -11,7 +9,6 @@ angular.module('ngApp').controller("clanInfoCtrl", ['$scope', '$http','$q','$tim
 
 
     }
-
 
 
 

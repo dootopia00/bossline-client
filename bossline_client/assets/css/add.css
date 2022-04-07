@@ -167,9 +167,10 @@ body{background-color:#000;color:#fff}.bi{display:inline-block;position:relative
 .icon-img-list li{overflow:hidden;position:relative;display:inline-block;width:82px;height:82px;margin-right:10px;margin-top:10px;border:2px solid #737373;border-radius:50%}
 .icon-img-list li img{position:absolute;left:50%;top:50%;width:auto;height:100%;transform:translate(-50%,-50%)}
 .clan-info .info-item .info-active{background-color:#ffd21f}
-
-
-
+.clan-info .info-item .input-form{padding:10px;width:100%;background-color:#1c1c1c;border:1px solid #333;color:#fff}
+.clan-info .info-item .input-form2{padding:10px;width:50px;margin-left:10px;background-color:#1c1c1c;border:1px solid #333;color:#fff}
+.clan-info-section .input-area {background-color:#1c1c1c;border:1px solid #333;color:#fff}
+/* .search-form .form-field-item input{padding:12px 16px;width:100%;background-color:#1c1c1c;border:1px solid #333;color:#fff} */
 
 
 

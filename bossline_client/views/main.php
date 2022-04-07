@@ -192,7 +192,7 @@
       </a>
       <div class="nav-menu">
         <a href="javascript:void(0);" ng-click="pageMovement('botam_smart')">보탐스마트</a>
-        <a href="javascript:void(0);" ng-click="pageMovement('line_smart')"  >라인스마트</a>
+        <a href="javascript:void(0);" ng-click="pageMovement('line_smart', {type:'lineage_w'})"  >라인스마트</a>
       </div>
       <span class="nav-line"></span>
       <div id='mypage' class="nav-auth" >
