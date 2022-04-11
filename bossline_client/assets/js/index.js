@@ -26,6 +26,7 @@ ngApp.controller("IndexCtrl", ['$scope', '$http','$q','$timeout','Authentication
 
     $scope.init = function(){
 
+        console.log('$scope.NG_USER_ID: ', $scope.NG_USER_ID)
         AuthenticationService.checked(function(result){});
 
     }
@@ -218,7 +219,6 @@ ngApp.controller("IndexCtrl", ['$scope', '$http','$q','$timeout','Authentication
     
     $scope.kakaoLogin = function(){
 
-        console.log('aaaaaaaa');
         window.Kakao.init("269c5b7a046160744b444b4f0beabf9e");
 
         window.Kakao.Auth.login({
@@ -229,23 +229,23 @@ ngApp.controller("IndexCtrl", ['$scope', '$http','$q','$timeout','Authentication
             url:'/v2/user/me',
             success: res => {
                 
-                const kakao_account = res.kakao_account;
-                console.log('kakao res : ',  res.id);
+                    const kakao_account = res.kakao_account;
+                    console.log('kakao res : ',  res.id);
 
-                AuthenticationService.Login(res.id, res.kakao_account.email, function(result,msg){
+                    AuthenticationService.Login(res.id, res.kakao_account.email, function(result,msg){
 
-                    if(result){ 
+                        if(result){ 
+                            
+                            console.log('login success');
+                        }else{
+                            alert(msg);
+                        }
                         
-                        console.log('login success');
-                    }else{
-                        alert(msg);
-                    }
+                    });
                     
+                    }
                 });
-                
-                }
-            });
-        }
+            }   
         });
     }
 

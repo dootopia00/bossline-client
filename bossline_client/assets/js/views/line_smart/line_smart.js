@@ -18,8 +18,6 @@ angular.module('ngApp').controller("lineSmartCtrl", ['$scope', '$http','$q','$ti
             console.log('lineSmartCtrl');
         // });
 
-        console.log('$scope.type : ', $scope.type)
-        
         if($scope.type == 'lineage_m'){
             $scope.typeName = '리니지M';
         }else if($scope.type == 'lineage_2m'){
@@ -32,7 +30,6 @@ angular.module('ngApp').controller("lineSmartCtrl", ['$scope', '$http','$q','$ti
             $scope.typeName = '오딘:발할라라이징';
         }
 
-        console.log('$scope.type : ', $scope.type)
         $scope.getServerList();
     }
 
@@ -42,6 +39,8 @@ angular.module('ngApp').controller("lineSmartCtrl", ['$scope', '$http','$q','$ti
     }
 
     $scope.getServerList = function(){
+
+        console.log('$scope.type : ', $scope.type)
 
 
         var params = $.param({
@@ -58,7 +57,6 @@ angular.module('ngApp').controller("lineSmartCtrl", ['$scope', '$http','$q','$ti
                     
                     $scope.serverList = items.data.list;
                     $scope.serverCount = items.data.total_count;
-                    
                     
                 }else{
                 
