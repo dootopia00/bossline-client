@@ -21,11 +21,9 @@
             <!-- <dd>오필리아</dd> -->
             <span class="select">
                 <select name="" id="">
-                    <option value="">서버정보</option>
-                    <option value="">군터1</option>
-                    <option value="">군터2</option>
-                    <option value="">군터3</option>
-                    <option value="">군터4</option>
+                    <option ng-repeat="it in serverList track by $index" value="{{it.id}}">
+                        {{it.name}}
+                    </option>
                 </select>
             </span>
         </dl>
@@ -45,7 +43,6 @@
                 <img src="./assets/img/icon_info-card05.png" alt="" />
             </span>
             <span>직업</span>
-            <!-- <span>기사</span> -->
             <span class="select">
                 <select name="" id="">
                     <option value="">기사</option>
@@ -65,7 +62,7 @@
                 </span>
                 <span>방어</span>
                 <span>
-                    <input class="input-form2" type="text" placeholder="">
+                    <input type="number" class="input-form2" placeholder="">
                 </span>
                 <span class="stat-item-arrow">
                     <img src="./assets/img/icon_arrow-up.png" alt="상승" />
@@ -77,7 +74,7 @@
                 </span>
                 <span>레벨</span>
                 <span>
-                    <input class="input-form2" type="text" placeholder="">
+                    <input type="number" class="input-form2" placeholder="">
                 </span>
                 <span class="stat-item-arrow">
                     <img src="./assets/img/icon_arrow-up.png" alt="상승" />
