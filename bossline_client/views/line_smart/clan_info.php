@@ -48,6 +48,7 @@
                     <option value="">기사</option>
                     <option value="">요정</option>
                     <option value="">군주</option>
+                    <option value="">마법사</option>
                 </select>
             </span>
             </span>
