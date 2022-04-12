@@ -88,61 +88,6 @@ angular.module('ngApp').controller("lineSmartCtrl", ['$scope', '$http','$q','$ti
         );
     }
 
-    $scope.submitMessageWrite = function(){
-
-        if($('#title').val() == ""){
-            toast('Please enter title.');
-            return false;
-        }
-
-        if($('#content').val() == ""){
-            toast('Please enter content.');
-            return false;
-        }
-
-        var formData = new FormData();
-        formData.append("authorization", $scope.NG_TUTOR_API_TOKEN);
-        formData.append("tu_id", $scope.NG_TUTOR_ID);
-        formData.append("uid", $scope.inputStudent.wl_uid);
-        formData.append("c_yn", 'y');
-        formData.append("title", $('#title').val());
-        formData.append("file", ($('#file').val() ? $('#file')[0].files[0] : ''));
-        formData.append("file2", ($('#file2').val() ? $('#file2')[0].files[0] : ''));
-        formData.append("memo", $('#content').summernote('code'));
-
-        $.ajax({
-            type: "POST",
-            enctype: 'multipart/form-data',
-            url: API_SERVER+'/clan/clan_insert',
-            data: formData,
-            processData: false,
-            contentType: false,
-            cache: false,
-            success: function (response) {
-
-                var items = response;
-                $scope.resCode = items.res_code;
-                if($scope.resCode == 200) {
-                    
-                    $scope.resMsg = items.msg;
-                    
-                }else{
-                    
-                    if($scope.resCode == 0900){
-                        $scope.resMsg = items.data.errMsg;
-                    }else{
-                        $scope.resCode = $scope.resCode;
-                        $scope.resMsg = items.msg;
-                        return;
-                    }
-                }
-            },
-            error: function () {
-
-            }
-        });
-
-    }
     
 
     $scope.serverSelectChange = function(){

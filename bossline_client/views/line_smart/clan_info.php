@@ -20,7 +20,7 @@
             <dt class="info-active">서버</dt>
             <!-- <dd>오필리아</dd> -->
             <span class="select">
-                <select name="" id="">
+                <select name="server">
                     <option ng-repeat="it in serverList track by $index" value="{{it.id}}">
                         {{it.name}}
                     </option>
@@ -29,11 +29,11 @@
         </dl>
         <dl class="info-item">
             <dt class="info-active">혈맹명</dt>
-            <dd><input class="input-form" type="text" placeholder="혈맹명"></dd>
+            <dd><input id="clan_name" class="input-form" type="text" placeholder="혈맹명"></dd>
         </dl>
         <dl class="info-item">
             <dt class="info-active">혈레벨</dt>
-            <dd><input class="input-form" type="text" placeholder="혈레벨"></dd>
+            <dd><input id="clan_level" class="input-form" type="number" placeholder="혈레벨"></dd>
         </dl>
         <dl class="info-item">
         <dt class="info-active">모집 클래스</dt>
@@ -44,11 +44,11 @@
             </span>
             <span>직업</span>
             <span class="select">
-                <select name="" id="">
-                    <option value="">기사</option>
-                    <option value="">요정</option>
-                    <option value="">군주</option>
-                    <option value="">마법사</option>
+                <select name="job">
+                    <option value="1">기사</option>
+                    <option value="2">요정</option>
+                    <option value="3">군주</option>
+                    <option value="4">마법사</option>
                 </select>
             </span>
             </span>
@@ -63,7 +63,7 @@
                 </span>
                 <span>방어</span>
                 <span>
-                    <input type="number" class="input-form2" placeholder="">
+                    <input type="number" id="defense" class="input-form2" placeholder="">
                 </span>
                 <span class="stat-item-arrow">
                     <img src="./assets/img/icon_arrow-up.png" alt="상승" />
@@ -75,7 +75,7 @@
                 </span>
                 <span>레벨</span>
                 <span>
-                    <input type="number" class="input-form2" placeholder="">
+                    <input type="number" id="level" class="input-form2" placeholder="">
                 </span>
                 <span class="stat-item-arrow">
                     <img src="./assets/img/icon_arrow-up.png" alt="상승" />
@@ -94,7 +94,7 @@
             오필리아 아덴 3연속 수성중인 혈입니다. 현재 오필리아 아덴
             3연속 수성중인 혈입니다.
         </p> -->
-        <textarea  name="" id="" cols="120" rows="10" class="input-area"></textarea>
+        <textarea id="description" cols="120" rows="10" class="input-area"></textarea>
         </div>
     </div>
     <div class="clan-info-section">
@@ -103,14 +103,14 @@
         <!-- <p>
             영웅템 - 전서버 최저가 50%
             <br />
-            혼 - 뽑기
+            혼 - 뽑기z
         </p> -->
-        <textarea name="" id="" cols="120" rows="10" class="input-area"></textarea>
+        <textarea id="welfare" cols="120" rows="10" class="input-area"></textarea>
 
         </div>
     </div>
     <div class="clan-info-btn">
-        <button type="button" class="btn btn-confirm">혈맹추가</button>
+        <button type="button" ng-click="insertClanButton()" class="btn btn-confirm">혈맹추가</button>
         <!-- <button type="button" class="btn btn-confirm">가입요청</button> -->
     </div>
 </div>

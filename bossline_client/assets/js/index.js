@@ -41,7 +41,7 @@ ngApp.controller("IndexCtrl", ['$scope', '$http','$q','$timeout','Authentication
         $scope.NG_USER_ID          =  (localStorage.getItem('NG_USER_ID')) ? (localStorage.getItem('NG_USER_ID')) : ''; 
         $scope.NG_EMAIL            =  (localStorage.getItem('NG_EMAIL')) ? (localStorage.getItem('NG_EMAIL')) : '';
         $scope.NG_USER_TYPE        =  (localStorage.getItem('NG_USER_TYPE')) ? (localStorage.getItem('NG_USER_TYPE')) : '';
-        $scope.NG_AUTHORIZATION    =  (localStorage.getItem('NG_AUTHORIZATION')) ? (localStorage.getItem('NG_ADMIN_NICKNAME')) : '';
+        $scope.NG_AUTHORIZATION    =  (localStorage.getItem('NG_AUTHORIZATION')) ? (localStorage.getItem('NG_AUTHORIZATION')) : '';
         $scope.NG_REG_DATE         =  (localStorage.getItem('NG_REG_DATE')) ? (localStorage.getItem('NG_REG_DATE')) : '';
     }
 
@@ -220,6 +220,7 @@ ngApp.controller("IndexCtrl", ['$scope', '$http','$q','$timeout','Authentication
     $scope.kakaoLogin = function(){
 
         window.Kakao.init("269c5b7a046160744b444b4f0beabf9e");
+        console.log('kakao'); 
 
         window.Kakao.Auth.login({
         scope: 'account_email',

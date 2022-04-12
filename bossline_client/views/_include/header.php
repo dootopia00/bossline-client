@@ -11,8 +11,8 @@
         </div>
         <span class="gnb-line"></span>
         <div id='mypage' class="gnb-auth">
-            <a ng-click="kakaoLogin()" href="javascript:void(0);" ng-if="NG_USER_ID == 'null'">로그인</a>
-            <a ng-click="pageMovement('my_page')" href="javascript:void(0);" ng-if="NG_USER_ID != 'null'">마이페이지</a>
+            <a ng-click="kakaoLogin()" href="javascript:void(0);" ng-if="NG_USER_ID == ''">로그인</a>
+            <a ng-click="pageMovement('my_page')" href="javascript:void(0);" ng-if="NG_USER_ID != ''">마이페이지</a>
         </div>
     </div>
 </nav>
