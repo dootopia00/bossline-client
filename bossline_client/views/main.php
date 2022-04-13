@@ -27,96 +27,9 @@
   gtag('config', 'AW-392325495');
 </script>
 
-<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript">
-  var isLogin = 0;
-  window.Kakao.init("269c5b7a046160744b444b4f0beabf9e");
-  function kakaoLogin() {
-    window.Kakao.Auth.login({
-      scope: 'account_email',
-      success: function(authObj) {
-        // console.log(authObj);
-        window.Kakao.API.request({
-          url:'/v2/user/me',
-          success: res => {
-            const kakao_account = res.kakao_account;
-            // console.log(res);
-            postForm('/', {userId: res.id, accessToken: authObj.access_token});
-          }
-        });
-      }
-    });
-  }
 
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 
-  function normalLogin() {
-    document.getElementById('login').style.visibility='visible';
-  }
-
-  function login(){
-    var uuid = document.getElementById('password').value;
-    var test = document.getElementById('uuid').value;
-    $.ajax({
-    type: 'GET',
-    dataType: "json",
-    url:'api/sign-in.php?userId='+uuid+'&test='+test,
-    success: function(data)
-    {
-      if(data["status"]== "success")
-        postForm('/', {userId: uuid, test: test});
-      else
-        document.getElementById('warning').style.visibility='visible';
-    }});
-    
-  }
-
-
-  function cancel() {
-    document.getElementById('login').style.visibility='hidden';
-    document.getElementById('warning').style.visibility='hidden';
-    document.getElementById('uuid').value = "";
-    document.getElementById('password').value = "";
-  }
-
-  function toMain() {
-    stopVideo();
-    document.getElementById('iframe').style.visibility='hidden'; 
-  }
-
-
-  function kakaoChannel() {
-    gtag('event', 'conversion', {'send_to': 'AW-392325495/1b8UCIHphoACEPfSibsB'});
-    Kakao.Channel.chat({
-      channelPublicId: '_EhleK' 
-    });
-
-  }
-
-  function postForm(path, params, method) {
-    method = method || 'post';
-
-    var form = document.createElement('form');
-    form.setAttribute('method', method);
-    form.setAttribute('action', path);
-
-    for (var key in params) {
-        if (params.hasOwnProperty(key)) {
-            var hiddenField = document.createElement('input');
-            hiddenField.setAttribute('type', 'hidden');
-            hiddenField.setAttribute('name', key);
-            hiddenField.setAttribute('value', params[key]);
-
-            form.appendChild(hiddenField);
-        }
-    }
-
-    document.body.appendChild(form);
-    form.submit();
-  }
-  
-
-</script>
 
 <div ng-controller="MainCtrl" ng-init="init()">
   <div class="wrapper">

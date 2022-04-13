@@ -7,11 +7,11 @@
         <dt>모집중</dt>
         <dd>
             <label class="checkbox">
-            <input type="radio" name="aaaaa" checked />
+            <input type="radio" name="recruit" value="Y" checked />
             <span class="checkbox-text">ON</span>
             </label>
             <label class="checkbox">
-            <input type="radio" name="aaaaa" />
+            <input type="radio" name="recruit" value="N" />
             <span class="checkbox-text">OFF</span>
             </label>
         </dd>

@@ -74,20 +74,17 @@
     <script type="text/javascript" src="/assets/js/index.js?v=<?php echo date("YmdHis", filemtime('assets/js/index.js'));?>"></script>
     
     <script src="/assets/vendors/swiper/swiper-bundle.min.js"></script>
-
-
-
+    <!-- 카카오 로그인 SDK -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
     <script>
-
-    function kakaoChannel() {
-        gtag('event', 'conversion', {'send_to': 'AW-392325495/1b8UCIHphoACEPfSibsB'});
-        Kakao.Channel.chat({
-        channelPublicId: '_EhleK' 
-        });
-    }
-
-</script>
+    // function kakaoChannel() {
+    //     gtag('event', 'conversion', {'send_to': 'AW-392325495/1b8UCIHphoACEPfSibsB'});
+    //     Kakao.Channel.chat({
+    //     channelPublicId: '_EhleK' 
+    //     });
+    // }
+    </script>
 
 </head>
 

@@ -219,8 +219,8 @@ ngApp.controller("IndexCtrl", ['$scope', '$http','$q','$timeout','Authentication
     
     $scope.kakaoLogin = function(){
 
-        window.Kakao.init("269c5b7a046160744b444b4f0beabf9e");
         console.log('kakao'); 
+        window.Kakao.init("269c5b7a046160744b444b4f0beabf9e");
 
         window.Kakao.Auth.login({
         scope: 'account_email',
