@@ -13,7 +13,7 @@ angular.module('ngApp').controller("clanInfoCtrl", ['$scope', '$http','$q','$tim
     $scope.insertClanButton = function(){
         
         var formData = new FormData();
-        formData.append("user_id", $scope.NG_USER_ID);
+        formData.append("user_pk", $scope.NG_USER_ID);
         formData.append("authorization", $scope.NG_AUTHORIZATION);
         formData.append("type", $scope.type);
         formData.append("recruit", $(":input:radio[name=recruit]:checked").val());
@@ -74,6 +74,8 @@ angular.module('ngApp').controller("clanInfoCtrl", ['$scope', '$http','$q','$tim
                 if($scope.resCode == 200) {
                     
                     $scope.resMsg = items.msg;
+                    alert('혈맹이 추가됐습니다');
+                    $scope.pageMovement('line_smart', {'type': 'lineage_w', 'subType':'clan_recruit' })
                     
                 }else{
                     

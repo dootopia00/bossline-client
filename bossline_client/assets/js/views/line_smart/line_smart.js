@@ -5,6 +5,7 @@ angular.module('ngApp').controller("lineSmartCtrl", ['$scope', '$http','$q','$ti
     $scope.subType = ($state.params.subType)  ?  $state.params.subType : 'clan_recruit';
 
     $scope.typeName = null;
+    $scope.subTypeName = null;
 
     $scope.myInfo = false;
     
@@ -32,7 +33,16 @@ angular.module('ngApp').controller("lineSmartCtrl", ['$scope', '$http','$q','$ti
             $scope.typeName = '오딘:발할라라이징';
         }
 
+        if($scope.subType == 'clan_recruit'){
+            $scope.subTypeName = '혈원모집';
+        }else if($scope.subType == 'server_info'){
+            $scope.subTypeName = '서버정보';
+        }else if($scope.subType == 'clan_info'){
+            $scope.subTypeName = '혈맹정보';
+        }
+        
         $scope.getServerList();
+        $scope.getUserInfo();
     }
 
     $scope.myInfoClick = function(){
@@ -40,6 +50,51 @@ angular.module('ngApp').controller("lineSmartCtrl", ['$scope', '$http','$q','$ti
         $scope.myInfo = !$scope.myInfo;
     }
     
+    $scope.getUserInfo = function(){
+
+        var params = $.param({
+            user_pk             : $scope.NG_USER_ID,
+            authorization       : $scope.NG_AUTHORIZATION,
+        });
+
+        $http.post(API_SERVER+'/user/get_user_info',params)
+            .then(function onSuccess(response)
+            {
+                var items = response.data;
+                $scope.resCode = items.res_code;
+
+                if($scope.resCode == 200){
+                    
+                    $scope.serverList = items.data.list;
+                    $scope.serverCount = items.data.total_count;
+                    
+                    console.log('$scope.serverList : ', $scope.serverList);
+
+                }else{
+                
+                    if($scope.resCode == 500){
+
+                        $scope.resCode = items.data.err_code;
+                        $scope.resMsg  = items.data.err_msg;
+                    
+                    }else{
+                        $scope.resCode = $scope.resCode;
+                        $scope.resMsg  = items.msg;
+                    }
+
+                    alert($scope.resMsg);
+                    $scope.itemsList = [];
+                    $scope.totalCount = 0;
+                }
+
+            },
+            function onError(response)
+            {
+                alert('정보를 불러오지 못했습니다.');
+            }
+        );
+    }
+
     
     $scope.getServerList = function(){
 

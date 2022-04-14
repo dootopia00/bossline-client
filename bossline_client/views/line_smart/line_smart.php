@@ -66,7 +66,7 @@
           <h2 class="title-group-text">
             <span>
               <em>{{ typeName }}</em>
-              혈원모집
+              {{ subTypeName }}
             </span>
           </h2> 
         </div>
