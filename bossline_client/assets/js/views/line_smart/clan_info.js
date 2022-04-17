@@ -16,9 +16,10 @@ angular.module('ngApp').controller("clanInfoCtrl", ['$scope', '$http','$q','$tim
         formData.append("user_pk", $scope.NG_USER_ID);
         formData.append("authorization", $scope.NG_AUTHORIZATION);
         formData.append("type", $scope.type);
-        formData.append("recruit", $(":input:radio[name=recruit]:checked").val());
+        formData.append("recruit_yn", $(":input:radio[name=recruit_yn]:checked").val());
         formData.append("clan_name", $('#clan_name').val());
         formData.append("clan_level", $('#clan_level').val());
+        formData.append("recruit_type", $("select[name=recruit_type]").val());
         formData.append("server", $("select[name=server]").val());
         formData.append("job", $("select[name=job]").val());
         formData.append("defense", $('#defense').val());
@@ -37,7 +38,7 @@ angular.module('ngApp').controller("clanInfoCtrl", ['$scope', '$http','$q','$tim
         console.log('level ', $('#level').val());
         console.log('description ', $('#description').val());
         console.log('welfare ', $('#welfare').val());
-        console.log('recruit ', $(":input:radio[name=recruit]:checked").val());
+        console.log('recruit_yn ', $(":input:radio[name=recruit_yn]:checked").val());
         console.log('API_SERVER : ', API_SERVER);
 
         if($('#clan_name').val() == ""){

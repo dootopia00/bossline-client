@@ -9,6 +9,8 @@ angular.module('ngApp').controller("lineSmartCtrl", ['$scope', '$http','$q','$ti
 
     $scope.myInfo = false;
     
+    $scope.userInfo = null;
+    
     $scope.serverList = null;
     $scope.serverCount = null;
 
@@ -68,10 +70,8 @@ angular.module('ngApp').controller("lineSmartCtrl", ['$scope', '$http','$q','$ti
 
                 if($scope.resCode == 200){
                     
-                    $scope.serverList = items.data.list;
-                    $scope.serverCount = items.data.total_count;
-                    
-                    console.log('$scope.serverList : ', $scope.serverList);
+                    $scope.userInfo = items.data.info;
+                    console.log('$scope.userInfo : ', $scope.userInfo);
 
                 }else{
                 

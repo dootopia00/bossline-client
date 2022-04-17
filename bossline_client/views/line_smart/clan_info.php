@@ -7,11 +7,11 @@
         <dt>모집중</dt>
         <dd>
             <label class="checkbox">
-            <input type="radio" name="recruit" value="Y" checked />
+            <input type="radio" name="recruit_yn" value="Y" checked />
             <span class="checkbox-text">ON</span>
             </label>
             <label class="checkbox">
-            <input type="radio" name="recruit" value="N" />
+            <input type="radio" name="recruit_yn" value="N" />
             <span class="checkbox-text">OFF</span>
             </label>
         </dd>
@@ -56,12 +56,12 @@
         </dl>
         
         <dl class="info-item">
-            <dt class="info-active">월즈</dt>
+            <dt class="info-active">모집상태</dt>
             <dd>
                 <span class="stat-item">
                 <span class="select">
-                    <select name="job">
-                        <option value="world">월즈</option>
+                    <select name="recruit_type">
+                        <option value="world">월드</option>
                         <option value="line">라인</option>
                         <option value="normal">중립</option>
                     </select>
