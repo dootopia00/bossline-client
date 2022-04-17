@@ -36,24 +36,40 @@
             <dd><input id="clan_level" class="input-form" type="number" placeholder="혈레벨"></dd>
         </dl>
         <dl class="info-item">
-        <dt class="info-active">모집 클래스</dt>
-        <dd>
-            <span class="stat-item">
-            <span class="stat-item-icon">
-                <img src="./assets/img/icon_info-card05.png" alt="" />
-            </span>
-            <span>직업</span>
-            <span class="select">
-                <select name="job">
-                    <option value="1">기사</option>
-                    <option value="2">요정</option>
-                    <option value="3">군주</option>
-                    <option value="4">마법사</option>
-                </select>
-            </span>
-            </span>
-        </dd>
+            <dt class="info-active">모집 클래스</dt>
+            <dd>
+                <span class="stat-item">
+                <span class="stat-item-icon">
+                    <img src="./assets/img/icon_info-card05.png" alt="" />
+                </span>
+                <span>직업</span>
+                <span class="select">
+                    <select name="job">
+                        <option value="1">기사</option>
+                        <option value="2">요정</option>
+                        <option value="3">군주</option>
+                        <option value="4">마법사</option>
+                    </select>
+                </span>
+                </span>
+            </dd>
         </dl>
+        
+        <dl class="info-item">
+            <dt class="info-active">월즈</dt>
+            <dd>
+                <span class="stat-item">
+                <span class="select">
+                    <select name="job">
+                        <option value="world">월즈</option>
+                        <option value="line">라인</option>
+                        <option value="normal">중립</option>
+                    </select>
+                </span>
+                </span>
+            </dd>
+        </dl>
+
         <dl class="info-item">
             <dt class="info-active">가입스펙</dt>
             <dd>
