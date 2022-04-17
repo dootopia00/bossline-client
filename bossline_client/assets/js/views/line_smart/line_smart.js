@@ -55,7 +55,10 @@ angular.module('ngApp').controller("lineSmartCtrl", ['$scope', '$http','$q','$ti
         var params = $.param({
             user_pk             : $scope.NG_USER_ID,
             authorization       : $scope.NG_AUTHORIZATION,
+            email               : $scope.NG_EMAIL,
         });
+        console.log('$scope.NG_USER_ID ', $scope.NG_USER_ID);
+        console.log('$scope.NG_AUTHORIZATION ', $scope.NG_AUTHORIZATION);
 
         $http.post(API_SERVER+'/user/get_user_info',params)
             .then(function onSuccess(response)
