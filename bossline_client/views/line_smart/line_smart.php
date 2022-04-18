@@ -83,9 +83,7 @@
               <button type="button" class="info-card-btn">
                 <img src="./assets/img/icon_enter.png" alt="확인" />
               </button> -->
-              <button type="button" class="info-card-btn">
-                저장버튼 추가해야함
-              </button>
+              <button type="button" class="btn-org">저장</button>
             </div>
             <div class="info-card-body">
               <strong class="game-id">
@@ -108,7 +106,7 @@
                   </span>
                   <span>방어</span>
                 </dt>
-                <dd><input type="text" value="{{ characterInfo.defense }}" /></dd>
+                <dd><input type="number" value="{{ characterInfo.defense }}" /></dd>
               </dl>
               <dl>
                 <dt>
@@ -117,7 +115,7 @@
                   </span>
                   <span>레벨</span>
                 </dt>
-                <dd><input type="text" value="{{ characterInfo.level }}"  /></dd>
+                <dd><input type="number" value="{{ characterInfo.level }}"  /></dd>
               </dl>
               <dl>
                 <dt>
