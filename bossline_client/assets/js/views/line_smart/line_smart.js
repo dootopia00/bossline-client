@@ -10,6 +10,7 @@ angular.module('ngApp').controller("lineSmartCtrl", ['$scope', '$http','$q','$ti
     $scope.myInfo = false;
     
     $scope.userInfo = null;
+    $scope.characterInfo = null;
     
     $scope.serverList = null;
     $scope.serverCount = null;
@@ -71,6 +72,7 @@ angular.module('ngApp').controller("lineSmartCtrl", ['$scope', '$http','$q','$ti
                 if($scope.resCode == 200){
                     
                     $scope.userInfo = items.data.info;
+                    $scope.characterInfo = items.data.info.chracter;
                     console.log('$scope.userInfo : ', $scope.userInfo);
 
                 }else{

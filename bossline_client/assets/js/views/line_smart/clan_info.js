@@ -1,5 +1,8 @@
 angular.module('ngApp').controller("clanInfoCtrl", ['$scope', '$http','$q','$timeout','AuthenticationService','$state','$stateParams', '$sce' , function ($scope, $http, $q, $timeout, AuthenticationService, $state, $stateParams, $sce ) {
     
+
+    $scope.clanInfo = null;
+
     $scope.init = function(){
         
         // 비로그인시 로그인 페이지 이동
@@ -7,14 +10,24 @@ angular.module('ngApp').controller("clanInfoCtrl", ['$scope', '$http','$q','$tim
             console.log('clanInfoCtrl');
         // });
 
+        $scope.getClanInfo();
     }
 
 
     $scope.insertClanButton = function(){
         
+        API = null;
+        
+        if($scope.clanInfo == null){
+            API = API_SERVER+'/clan/clan_insert';
+        }else{
+            API = API_SERVER+'/clan/clan_modify';
+        }
+
         var formData = new FormData();
         formData.append("user_pk", $scope.NG_USER_ID);
         formData.append("authorization", $scope.NG_AUTHORIZATION);
+        formData.append("email", $scope.NG_EMAIL);
         formData.append("type", $scope.type);
         formData.append("recruit_yn", $(":input:radio[name=recruit_yn]:checked").val());
         formData.append("clan_name", $('#clan_name').val());
@@ -63,7 +76,7 @@ angular.module('ngApp').controller("clanInfoCtrl", ['$scope', '$http','$q','$tim
         $.ajax({
             type: "POST",
             enctype: 'multipart/form-data',
-            url: API_SERVER+'/clan/clan_insert',
+            url: API,
             data: formData,
             processData: false,
             contentType: false,
@@ -75,7 +88,12 @@ angular.module('ngApp').controller("clanInfoCtrl", ['$scope', '$http','$q','$tim
                 if($scope.resCode == 200) {
                     
                     $scope.resMsg = items.msg;
-                    alert('혈맹이 추가됐습니다');
+
+                    if($scope.clanInfo == null){
+                        alert('혈맹이 추가됐습니다');
+                    }else{
+                        alert('혈맹이 수정됐습니다');
+                    }
                     $scope.pageMovement('line_smart', {'type': 'lineage_w', 'subType':'clan_recruit' })
                     
                 }else{
@@ -85,8 +103,11 @@ angular.module('ngApp').controller("clanInfoCtrl", ['$scope', '$http','$q','$tim
                     }else{
                         $scope.resCode = $scope.resCode;
                         $scope.resMsg = items.msg;
-                        return;
                     }
+                    
+                    alert($scope.resMsg);
+                    // $scope.itemsList = [];
+                    // $scope.totalCount = 0;
                 }
             },
             error: function () {
@@ -94,6 +115,52 @@ angular.module('ngApp').controller("clanInfoCtrl", ['$scope', '$http','$q','$tim
             }
         });
 
+    }
+
+    $scope.getClanInfo = function(){
+
+        var params = $.param({
+            user_pk             : $scope.NG_USER_ID,
+            authorization       : $scope.NG_AUTHORIZATION,
+            email               : $scope.NG_EMAIL,
+            type                : $scope.type,
+        });
+
+        console.log('$scope.NG_USER_ID ', $scope.NG_USER_ID);
+        console.log('$scope.NG_AUTHORIZATION ', $scope.NG_AUTHORIZATION);
+        console.log('$scope.NG_EMAIL ', $scope.NG_EMAIL);
+        console.log('$scope.type ', $scope.type);
+
+        $http.post(API_SERVER+'/clan/get_clan_info',params)
+            .then(function onSuccess(response)
+            {
+                var items = response.data;
+                $scope.resCode = items.res_code;
+
+                if($scope.resCode == 200){
+                    
+                    $scope.clanInfo = items.data.info;
+
+                }else{
+                
+                    if($scope.resCode == 500){
+
+                        $scope.resCode = items.data.err_code;
+                        $scope.resMsg  = items.data.err_msg;
+                    
+                    }else{
+                        $scope.resCode = $scope.resCode;
+                        $scope.resMsg  = items.msg;
+                    }
+
+                }
+
+            },
+            function onError(response)
+            {
+                alert('정보를 불러오지 못했습니다.');
+            }
+        );
     }
 
 }]);
