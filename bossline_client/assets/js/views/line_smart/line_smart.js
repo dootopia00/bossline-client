@@ -51,6 +51,8 @@ angular.module('ngApp').controller("lineSmartCtrl", ['$scope', '$http','$q','$ti
     $scope.myInfoClick = function(){
 
         $scope.myInfo = !$scope.myInfo;
+        console.log('$scope.myInfo : ', $scope.myInfo)
+
     }
     
     $scope.getUserInfo = function(){
@@ -72,8 +74,9 @@ angular.module('ngApp').controller("lineSmartCtrl", ['$scope', '$http','$q','$ti
                 if($scope.resCode == 200){
                     
                     $scope.userInfo = items.data.info;
-                    $scope.characterInfo = items.data.info.chracter;
+                    $scope.characterInfo = items.data.info.character;
                     console.log('$scope.userInfo : ', $scope.userInfo);
+                    console.log('$scope.characterInfo : ', $scope.characterInfo);
 
                 }else{
                 
@@ -148,6 +151,61 @@ angular.module('ngApp').controller("lineSmartCtrl", ['$scope', '$http','$q','$ti
         );
     }
 
+    $scope.characterInfoModify = function(){
+
+        var formData = new FormData();
+        formData.append("user_pk", $scope.NG_USER_ID);
+        formData.append("authorization", $scope.NG_AUTHORIZATION);
+        formData.append("email", $scope.NG_EMAIL);
+        formData.append("type", $scope.type);
+
+        formData.append("clan_name", $('#clan_name').val());
+        formData.append("job", $("select[name=job]").val());
+        formData.append("defense", $('#defense').val());
+        formData.append("level", $('#level').val());
+        formData.append("change", $('#change').val());
+        // formData.append("nickname", $('#nickname').val());
+
+        $.ajax({
+            type: "POST",
+            enctype: 'multipart/form-data',
+            url: API_SERVER+'/character/character_modify',
+            data: formData,
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function (response) {
+
+                var items = response;
+                $scope.resCode = items.res_code;
+                if($scope.resCode == 200) {
+                    
+                    $scope.resMsg = items.msg;
+                    alert('정보가 수정됐습니다');
+                    
+                }else{
+                    
+                    if($scope.resCode == 0900){
+                        $scope.resMsg = items.data.errMsg;
+                    }else{
+                        $scope.resCode = $scope.resCode;
+                        $scope.resMsg = items.msg;
+                    }
+                    
+                    alert($scope.resMsg);
+                    // $scope.itemsList = [];
+                    // $scope.totalCount = 0;
+                }
+
+                $scope.myInfo = false;    
+
+            },
+            error: function () {
+
+            }
+        });
+
+    }
     
 
     $scope.serverSelectChange = function(){

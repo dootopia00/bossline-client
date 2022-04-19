@@ -47,22 +47,24 @@
   </div>
 
   <div class="user-list">
-    <div class="user-list-item">
+    <div class="user-list-item" ng-repeat="it in clanPayList">
       <div class="user-card">
         <div class="user-card-header">
           <div class="avatar">
             <span class="avatar-img">
               <img src="https://picsum.photos/100/100" alt="" />
             </span>
-            <span class="avatar-text">오필리아</span>
+            <span class="avatar-text">{{ it.server_name }}</span>
             <!--MEMO: btn-red, btn-blue, btn-green-->
 
-            <span class="btn btn-red btn-sm">월드</span>
+            <span class="btn btn-blue btn-sm" ng-if="it.recruit_type == 'line'">라인</span>
+            <span class="btn btn-green btn-sm" ng-if="it.recruit_type == 'normal'">중립</span>
+            <span class="btn btn-red btn-sm" ng-if="it.recruit_type == 'world'">월드</span>
           </div>
         </div>
         <div class="user-card-body">
           <dl>
-            <dt>군주</dt>
+            <dt>{{ it.defense }}</dt>
             <dd>우우웅(위블로)</dd>
           </dl>
           <dl>
@@ -75,7 +77,7 @@
                     alt=""
                   />
                 </span>
-                <span>210</span>
+                <span>{{ it.defense }}</span>
                 <span class="stat-item-arrow">
                   <img
                     src="./assets/img/icon_arrow-up.png"
@@ -90,7 +92,7 @@
                     alt=""
                   />
                 </span>
-                <span>210</span>
+                <span>{{ it.level }}</span>
                 <span class="stat-item-arrow">
                   <img
                     src="./assets/img/icon_arrow-up.png"
@@ -104,119 +106,8 @@
       </div>
     </div>
 
-    <div class="user-list-item">
-      <div class="user-card">
-        <div class="user-card-header">
-          <div class="avatar">
-            <span class="avatar-img">
-              <img src="https://picsum.photos/100/100" alt="" />
-            </span>
-            <span class="avatar-text">오필리아</span>
-            <!--MEMO: btn-red, btn-blue, btn-green-->
 
-            <span class="btn btn-blue btn-sm">라인</span>
-          </div>
-        </div>
-        <div class="user-card-body">
-          <dl>
-            <dt>군주</dt>
-            <dd>우우웅(위블로)</dd>
-          </dl>
-          <dl>
-            <dt>스펙</dt>
-            <dd>
-              <span class="stat-item">
-                <span class="stat-item-icon">
-                  <img
-                    src="./assets/img/icon_stat-item01.png"
-                    alt=""
-                  />
-                </span>
-                <span>210</span>
-                <span class="stat-item-arrow">
-                  <img
-                    src="./assets/img/icon_arrow-up.png"
-                    alt="상승"
-                  />
-                </span>
-              </span>
-              <span class="stat-item">
-                <span class="stat-item-icon">
-                  <img
-                    src="./assets/img/icon_info-card03.png"
-                    alt=""
-                  />
-                </span>
-                <span>210</span>
-                <span class="stat-item-arrow">
-                  <img
-                    src="./assets/img/icon_arrow-up.png"
-                    alt="상승"
-                  />
-                </span>
-              </span>
-            </dd>
-          </dl>
-        </div>
-      </div>
-    </div>
-
-    <div class="user-list-item">
-      <div class="user-card">
-        <div class="user-card-header">
-          <div class="avatar">
-            <span class="avatar-img">
-              <img src="https://picsum.photos/100/100" alt="" />
-            </span>
-            <span class="avatar-text">오필리아</span>
-            <!--MEMO: btn-red, btn-blue, btn-green-->
-
-            <span class="btn btn-green btn-sm">중립</span>
-          </div>
-        </div>
-        <div class="user-card-body">
-          <dl>
-            <dt>군주</dt>
-            <dd>우우웅(위블로)</dd>
-          </dl>
-          <dl>
-            <dt>스펙</dt>
-            <dd>
-              <span class="stat-item">
-                <span class="stat-item-icon">
-                  <img
-                    src="./assets/img/icon_stat-item01.png"
-                    alt=""
-                  />
-                </span>
-                <span>210</span>
-                <span class="stat-item-arrow">
-                  <img
-                    src="./assets/img/icon_arrow-up.png"
-                    alt="상승"
-                  />
-                </span>
-              </span>
-              <span class="stat-item">
-                <span class="stat-item-icon">
-                  <img
-                    src="./assets/img/icon_info-card03.png"
-                    alt=""
-                  />
-                </span>
-                <span>210</span>
-                <span class="stat-item-arrow">
-                  <img
-                    src="./assets/img/icon_arrow-up.png"
-                    alt="상승"
-                  />
-                </span>
-              </span>
-            </dd>
-          </dl>
-        </div>
-      </div>
-    </div>
+    
   </div>
 
   <div class="is-desktop">
@@ -231,99 +122,25 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr ng-repeat="it in clanList">
           <td>
-            <span class="btn btn-red btn-sm">월드</span>
-          </td>
-          <td>
-            <span class="badge">아리아</span>
-          </td>
-          <td>11</td>
-          <td>
-            <span class="stat-item">
-              <span class="stat-item-icon">
-                <img src="./assets/img/icon_stat-item01.png" alt="" />
-              </span>
-              <span>방어</span>
-              <span>210</span>
-              <span class="stat-item-arrow">
-                <img
-                  src="./assets/img/icon_arrow-up.png"
-                  alt="상승"
-                />
-              </span>
-            </span>
-            <span class="stat-item">
-              <span class="stat-item-icon">
-                <img src="./assets/img/icon_info-card03.png" alt="" />
-              </span>
-              <span>레벨</span>
-              <span>210</span>
-              <span class="stat-item-arrow">
-                <img
-                  src="./assets/img/icon_arrow-up.png"
-                  alt="상승"
-                />
-              </span>
-            </span>
-          </td>
-          <td class="text-left">편한 게임 환영합니다.</td>
-        </tr>
 
-        <tr>
-          <td>
-            <span class="btn btn-blue btn-sm">라인</span>
-          </td>
-          <td>
-            <span class="badge">아리아</span>
-          </td>
-          <td>11</td>
-          <td>
-            <span class="stat-item">
-              <span class="stat-item-icon">
-                <img src="./assets/img/icon_stat-item01.png" alt="" />
-              </span>
-              <span>방어</span>
-              <span>210</span>
-              <span class="stat-item-arrow">
-                <img
-                  src="./assets/img/icon_arrow-up.png"
-                  alt="상승"
-                />
-              </span>
-            </span>
-            <span class="stat-item">
-              <span class="stat-item-icon">
-                <img src="./assets/img/icon_info-card03.png" alt="" />
-              </span>
-              <span>레벨</span>
-              <span>210</span>
-              <span class="stat-item-arrow">
-                <img
-                  src="./assets/img/icon_arrow-up.png"
-                  alt="상승"
-                />
-              </span>
-            </span>
-          </td>
-          <td class="text-left">편한 게임 환영합니다.</td>
-        </tr>
+            <span class="btn btn-blue btn-sm" ng-if="it.recruit_type == 'line'">라인</span>
+            <span class="btn btn-green btn-sm" ng-if="it.recruit_type == 'normal'">중립</span>
+            <span class="btn btn-red btn-sm" ng-if="it.recruit_type == 'world'">월드</span>
 
-        <tr>
-          <td>
-            <span class="btn btn-green btn-sm">중립</span>
           </td>
           <td>
-            <span class="badge">아리아</span>
+            <span class="badge">{{ it.server_name }}</span>
           </td>
-          <td>11</td>
+          <td>{{ it.level }}</td>
           <td>
             <span class="stat-item">
               <span class="stat-item-icon">
                 <img src="./assets/img/icon_stat-item01.png" alt="" />
               </span>
               <span>방어</span>
-              <span>210</span>
+              <span>{{ it.defense }}</span>
               <span class="stat-item-arrow">
                 <img
                   src="./assets/img/icon_arrow-up.png"
@@ -336,7 +153,7 @@
                 <img src="./assets/img/icon_info-card03.png" alt="" />
               </span>
               <span>레벨</span>
-              <span>210</span>
+              <span>{{ it.level }}</span>
               <span class="stat-item-arrow">
                 <img
                   src="./assets/img/icon_arrow-up.png"
@@ -345,267 +162,13 @@
               </span>
             </span>
           </td>
-          <td class="text-left">편한 게임 환영합니다.</td>
+          <td class="text-left">{{ it.description }}</td>
         </tr>
+        
 
-        <tr>
-          <td></td>
-          <td>
-            <span class="badge">아리아</span>
-          </td>
-          <td>11</td>
-          <td>
-            <span class="stat-item">
-              <span class="stat-item-icon">
-                <img src="./assets/img/icon_stat-item01.png" alt="" />
-              </span>
-              <span>방어</span>
-              <span>210</span>
-              <span class="stat-item-arrow">
-                <img
-                  src="./assets/img/icon_arrow-up.png"
-                  alt="상승"
-                />
-              </span>
-            </span>
-            <span class="stat-item">
-              <span class="stat-item-icon">
-                <img src="./assets/img/icon_info-card03.png" alt="" />
-              </span>
-              <span>레벨</span>
-              <span>210</span>
-              <span class="stat-item-arrow">
-                <img
-                  src="./assets/img/icon_arrow-up.png"
-                  alt="상승"
-                />
-              </span>
-            </span>
-          </td>
-          <td class="text-left">편한 게임 환영합니다.</td>
-        </tr>
 
-        <tr>
-          <td></td>
-          <td>
-            <span class="badge">아리아</span>
-          </td>
-          <td>11</td>
-          <td>
-            <span class="stat-item">
-              <span class="stat-item-icon">
-                <img src="./assets/img/icon_stat-item01.png" alt="" />
-              </span>
-              <span>방어</span>
-              <span>210</span>
-              <span class="stat-item-arrow">
-                <img
-                  src="./assets/img/icon_arrow-up.png"
-                  alt="상승"
-                />
-              </span>
-            </span>
-            <span class="stat-item">
-              <span class="stat-item-icon">
-                <img src="./assets/img/icon_info-card03.png" alt="" />
-              </span>
-              <span>레벨</span>
-              <span>210</span>
-              <span class="stat-item-arrow">
-                <img
-                  src="./assets/img/icon_arrow-up.png"
-                  alt="상승"
-                />
-              </span>
-            </span>
-          </td>
-          <td class="text-left">편한 게임 환영합니다.</td>
-        </tr>
 
-        <tr>
-          <td></td>
-          <td>
-            <span class="badge">아리아</span>
-          </td>
-          <td>11</td>
-          <td>
-            <span class="stat-item">
-              <span class="stat-item-icon">
-                <img src="./assets/img/icon_stat-item01.png" alt="" />
-              </span>
-              <span>방어</span>
-              <span>210</span>
-              <span class="stat-item-arrow">
-                <img
-                  src="./assets/img/icon_arrow-up.png"
-                  alt="상승"
-                />
-              </span>
-            </span>
-            <span class="stat-item">
-              <span class="stat-item-icon">
-                <img src="./assets/img/icon_info-card03.png" alt="" />
-              </span>
-              <span>레벨</span>
-              <span>210</span>
-              <span class="stat-item-arrow">
-                <img
-                  src="./assets/img/icon_arrow-up.png"
-                  alt="상승"
-                />
-              </span>
-            </span>
-          </td>
-          <td class="text-left">편한 게임 환영합니다.</td>
-        </tr>
-
-        <tr>
-          <td></td>
-          <td>
-            <span class="badge">아리아</span>
-          </td>
-          <td>11</td>
-          <td>
-            <span class="stat-item">
-              <span class="stat-item-icon">
-                <img src="./assets/img/icon_stat-item01.png" alt="" />
-              </span>
-              <span>방어</span>
-              <span>210</span>
-              <span class="stat-item-arrow">
-                <img
-                  src="./assets/img/icon_arrow-up.png"
-                  alt="상승"
-                />
-              </span>
-            </span>
-            <span class="stat-item">
-              <span class="stat-item-icon">
-                <img src="./assets/img/icon_info-card03.png" alt="" />
-              </span>
-              <span>레벨</span>
-              <span>210</span>
-              <span class="stat-item-arrow">
-                <img
-                  src="./assets/img/icon_arrow-up.png"
-                  alt="상승"
-                />
-              </span>
-            </span>
-          </td>
-          <td class="text-left">편한 게임 환영합니다.</td>
-        </tr>
-
-        <tr>
-          <td></td>
-          <td>
-            <span class="badge">아리아</span>
-          </td>
-          <td>11</td>
-          <td>
-            <span class="stat-item">
-              <span class="stat-item-icon">
-                <img src="./assets/img/icon_stat-item01.png" alt="" />
-              </span>
-              <span>방어</span>
-              <span>210</span>
-              <span class="stat-item-arrow">
-                <img
-                  src="./assets/img/icon_arrow-up.png"
-                  alt="상승"
-                />
-              </span>
-            </span>
-            <span class="stat-item">
-              <span class="stat-item-icon">
-                <img src="./assets/img/icon_info-card03.png" alt="" />
-              </span>
-              <span>레벨</span>
-              <span>210</span>
-              <span class="stat-item-arrow">
-                <img
-                  src="./assets/img/icon_arrow-up.png"
-                  alt="상승"
-                />
-              </span>
-            </span>
-          </td>
-          <td class="text-left">편한 게임 환영합니다.</td>
-        </tr>
-
-        <tr>
-          <td></td>
-          <td>
-            <span class="badge">아리아</span>
-          </td>
-          <td>11</td>
-          <td>
-            <span class="stat-item">
-              <span class="stat-item-icon">
-                <img src="./assets/img/icon_stat-item01.png" alt="" />
-              </span>
-              <span>방어</span>
-              <span>210</span>
-              <span class="stat-item-arrow">
-                <img
-                  src="./assets/img/icon_arrow-up.png"
-                  alt="상승"
-                />
-              </span>
-            </span>
-            <span class="stat-item">
-              <span class="stat-item-icon">
-                <img src="./assets/img/icon_info-card03.png" alt="" />
-              </span>
-              <span>레벨</span>
-              <span>210</span>
-              <span class="stat-item-arrow">
-                <img
-                  src="./assets/img/icon_arrow-up.png"
-                  alt="상승"
-                />
-              </span>
-            </span>
-          </td>
-          <td class="text-left">편한 게임 환영합니다.</td>
-        </tr>
-
-        <tr>
-          <td></td>
-          <td>
-            <span class="badge">아리아</span>
-          </td>
-          <td>11</td>
-          <td>
-            <span class="stat-item">
-              <span class="stat-item-icon">
-                <img src="./assets/img/icon_stat-item01.png" alt="" />
-              </span>
-              <span>방어</span>
-              <span>210</span>
-              <span class="stat-item-arrow">
-                <img
-                  src="./assets/img/icon_arrow-up.png"
-                  alt="상승"
-                />
-              </span>
-            </span>
-            <span class="stat-item">
-              <span class="stat-item-icon">
-                <img src="./assets/img/icon_info-card03.png" alt="" />
-              </span>
-              <span>레벨</span>
-              <span>210</span>
-              <span class="stat-item-arrow">
-                <img
-                  src="./assets/img/icon_arrow-up.png"
-                  alt="상승"
-                />
-              </span>
-            </span>
-          </td>
-          <td class="text-left">편한 게임 환영합니다.</td>
-        </tr>
+        
       </tbody>
     </table>
   </div>

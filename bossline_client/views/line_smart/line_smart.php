@@ -72,7 +72,7 @@
         </div>
         <div class="title-group-col">
           <!--MEMO: is-open 클래스명 추가 시 하위 콘텐츠가 열립니다. -->
-          <div class="info-card js-info-card-container" ng-class="{'is-open' : myInfo == true}">
+          <div class="info-card js-info-card-container" ng-class="{ 'is-open' : myInfo == true, '' : myInfo == false }">
             <div class="info-card-header">
               <h3>
                 <img src="./assets/img/img_premium.png" alt="PREMIUM" />
@@ -83,7 +83,7 @@
               <button type="button" class="info-card-btn">
                 <img src="./assets/img/icon_enter.png" alt="확인" />
               </button> -->
-              <button type="button" class="btn-org">저장</button>
+              <button type="button" class="btn-org" ng-click="characterInfoModify()">저장</button>
             </div>
             <div class="info-card-body">
               <strong class="game-id">
@@ -97,7 +97,7 @@
                   <span>혈맹</span>
                 </dt>
                 <!--MEMO: readonly 속성 삭제 시 입력 가능한 상태가 됩니다.-->
-                <dd><input type="text" value="{{ characterInfo.clan_name }}"  /></dd>
+                <dd><input type="text" id="clan_name" value="{{ characterInfo.clan_name }}"  /></dd>
               </dl>
               <dl>
                 <dt>
@@ -106,7 +106,7 @@
                   </span>
                   <span>방어</span>
                 </dt>
-                <dd><input type="number" value="{{ characterInfo.defense }}" /></dd>
+                <dd><input type="number" id="defense" value="{{ characterInfo.defense }}" /></dd>
               </dl>
               <dl>
                 <dt>
@@ -115,7 +115,7 @@
                   </span>
                   <span>레벨</span>
                 </dt>
-                <dd><input type="number" value="{{ characterInfo.level }}"  /></dd>
+                <dd><input type="number" id="level" value="{{ characterInfo.level }}"  /></dd>
               </dl>
               <dl>
                 <dt>
@@ -124,7 +124,7 @@
                   </span>
                   <span>변신</span>
                 </dt>
-                <dd><input type="text" value="{{ characterInfo.change }}" /></dd>
+                <dd><input type="text" id="change" value="{{ characterInfo.change }}" /></dd>
               </dl>
               <dl>
                 <dt>
