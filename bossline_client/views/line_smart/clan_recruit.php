@@ -4,9 +4,7 @@
   <div class="search-form">
     <div class="search-form-tab">
       <!-- is-active -->
-      <button type="button" class="btn btn-red" ng-click="onClickClanType('world')" ng-class="{'is-active' : clanType == 'world'}">
-        월드
-      </button>
+      <button type="button" class="btn btn-red" ng-click="onClickClanType('world')" ng-class="{'is-active' : clanType == 'world'}">월드</button>
       <button type="button" class="btn btn-blue"  ng-click="onClickClanType('line')" ng-class="{'is-active' : clanType == 'line'}">라인</button>
       <button type="button" class="btn btn-green" ng-click="onClickClanType('neutrality')" ng-class="{'is-active' : clanType == 'neutrality'}">중립</button>
     </div>
@@ -14,26 +12,32 @@
       <div class="form-field">
         <label class="form-field-item">
           <span>방어</span>
-          <input type="text" placeholder="방어력 입력" />
+          <input type="number" placeholder="방어력 입력" />
         </label>
         <label class="form-field-item">
           <span>LV</span>
-          <input type="text" placeholder="레벨을 입력하세요" />
+          <input type="number" placeholder="레벨을 입력하세요" />
         </label>
         <label class="form-field-item">
           <span>서버</span>
-          <input type="text" placeholder="서버명 입력" />
+          <span class="select">
+            <select name="server">
+                <option ng-repeat="it in serverList track by $index" value="{{it.id}}" ng-selected="clanInfo.server == it.id">
+                    {{it.name}}
+                </option>
+            </select>
+          </span>
         </label>
       </div>
       <div class="search-btn">
-        <button type="button">
+        <button type="button" ng-click="clanSearch()">
           <span>검색</span>
           <img src="./assets/img/icon_search.png" alt="" />
         </button>
       </div>
     </div>
   </div>
-
+<!-- 
   <div class="select-section">
     <span class="select">
       <select name="" id="">
@@ -44,7 +48,7 @@
         <option value="">군터4</option>
       </select>
     </span>
-  </div>
+  </div> -->
 
   <div class="user-list">
     <div class="user-list-item" ng-repeat="it in clanPayList">
@@ -165,13 +169,10 @@
           <td class="text-left">{{ it.description }}</td>
         </tr>
         
-
-
-
-        
       </tbody>
     </table>
   </div>
+
 
   <div class="is-mobile">
     <div class="table-list" role="list">
