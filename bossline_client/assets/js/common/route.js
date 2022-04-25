@@ -64,7 +64,11 @@ ngApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, lazyIm
                     '/assets/js/views/line_smart/clan_recruit.js?v='+version,
                     '/assets/js/views/line_smart/clan_info.js?v='+version,
                     '/assets/js/views/line_smart/server_info.js?v='+version,
-            ]
+                ]
+            },
+            {
+                name : 'my_page',
+                files: ['/assets/js/views/my_page/my_page.js?v='+version,]
             },
         ]
     });
@@ -149,6 +153,24 @@ ngApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, lazyIm
             resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load('line_smart'); // 사용할 js명
+                }]
+            }
+        })
+        .state('my_page', {
+            // main router
+            url: '/my_page',
+            views: {
+                "lazyLoadView": {  // index.php에 있는 ui-view
+                    templateUrl: "/views/my_page/my_page.php" //js에서 사용할 뷰파일 php파일
+                }
+            },
+            params: {
+                state : null,
+                hash : null,
+            },
+            resolve: {
+                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load('my_page'); // 사용할 js명
                 }]
             }
         })

@@ -8,6 +8,9 @@ angular.module('ngApp').controller("clanRecruitCtrl", ['$scope', '$http','$q','$
     $scope.clanPayList = null;
     $scope.clanPayCount = null;
 
+    $scope.clanRecruit = null;
+    $scope.server = null;
+
     $scope.init = function(){
         
         // 비로그인시 로그인 페이지 이동
@@ -110,7 +113,7 @@ angular.module('ngApp').controller("clanRecruitCtrl", ['$scope', '$http','$q','$
 
         var params = $.param({
             type           : $scope.type,
-            type           : $scope.type,
+            recruit_type   : type,
         });
 
         $http.post(API_SERVER+'/clan/clan_search',params)
@@ -154,7 +157,8 @@ angular.module('ngApp').controller("clanRecruitCtrl", ['$scope', '$http','$q','$
 
         var params = $.param({
             type           : $scope.type,
-            type           : $scope.type,
+            recruit_type   : type,
+
         });
 
         $http.post(API_SERVER+'/clan/clan_search',params)

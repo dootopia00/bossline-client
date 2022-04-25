@@ -34,6 +34,10 @@
               <div>
                 <span>드래곤</span>
                 <span class="badge">모집중</span>
+                <select name="" id="">
+                  <option value="">모집중</option>
+                  <option value="">모집안함</option>
+                </select>
               </div>
               <button type="button">
                 <img src="./assets/img/icon_pencil.png" alt="메모" />
@@ -45,6 +49,7 @@
               <div>
                 <span>8:2</span>
                 <span>드래곤:학살</span>
+                <button style="color: white;">버튼</button>
               </div>
               <button type="button">
                 <img src="./assets/img/icon_pencil.png" alt="메모" />
